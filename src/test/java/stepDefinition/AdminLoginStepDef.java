@@ -1,6 +1,8 @@
 package stepDefinition;
 
 import java.io.PrintStream;
+import java.util.List;
+import java.util.Map;
 
 import org.testng.Assert;
 
@@ -12,11 +14,14 @@ import io.restassured.filter.log.RequestLoggingFilter;
 import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import requestBody.Post_Login;
+import utilities.ExcelUtilities;
 
 public class AdminLoginStepDef {
 	
 	Post_Login postLogin = new Post_Login();
 	  Response response;
+	  String body;
+	  int exp_status_code;
 	 
 	   
 		
@@ -28,8 +33,11 @@ public void admin_sets_the_authorization_to_no_auth() {
 
 @Given("User creates Post request with request body.")
 public void user_creates_post_request_with_request_body() throws Exception {
-	 
-	String body =  postLogin.UserLoginPost();
+	
+	List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
+	for(Map<String, String> data : testData) {
+		body = postLogin.getLoginReqBody(data);
+		 exp_status_code = Integer.parseInt(data.get("StatusCode"));
 	System.out.println(body);
 response = RestAssured
     .given()
@@ -39,10 +47,11 @@ response = RestAssured
     .when()
     	.post()
     .then()
-    	.assertThat().statusCode(200)
-    	.log().ifStatusCodeIsEqualTo(200).extract().response();
+    	.assertThat().statusCode(exp_status_code)
+    	.log().all().extract().response();
+	}
   int status_code = response.getStatusCode();
-  Assert.assertEquals(status_code, 200, "correct status code returned");
+  Assert.assertEquals(status_code, exp_status_code, "correct status code returned");
    
 }
 

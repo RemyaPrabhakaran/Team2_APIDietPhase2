@@ -1,4 +1,4 @@
 $(document).ready(function() {
-CucumberHTML.timelineItems.pushArray([{"id":"fcc3b2d0-6c04-4c1f-8da4-7cfd38b2035c","feature":"User Login","scenario":"Check user able to login as admin with valid data","start":1723711684254,"group":1,"content":"","tags":"","end":1723711687541,"className":"failed"}]);
+CucumberHTML.timelineItems.pushArray([{"id":"341bfbcb-53c6-45b0-a5cb-c479fda193c1","feature":"User Login","scenario":"Check user able to login as admin with valid data","start":1723797148717,"group":1,"content":"","tags":"","end":1723797154834,"className":"passed"}]);
 CucumberHTML.timelineGroups.pushArray([{"id":1,"content":"Thread[main,5,main]"}]);
 });

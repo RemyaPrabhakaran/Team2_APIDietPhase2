@@ -3,7 +3,23 @@
   <groupId>Team2_APIDiet_RestAssuredHackathon_Aug2024</groupId>
   <artifactId>Team2_APIDiet_RestAssuredHackathon_Aug2024</artifactId>
   <version>0.0.1-SNAPSHOT</version>
-  
+<build>
+	<plugins>
+		<plugin>
+<!--  https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-surefire-plugin  -->
+<groupId>org.apache.maven.plugins</groupId>
+<artifactId>maven-surefire-plugin</artifactId>
+<version>3.0.0</version>
+<configuration>
+<includes>
+<include>TestRunner.java</include>
+</includes>
+</configuration>
+</plugin>
+	</plugins>
+	
+</build>
+
   <dependencies>
 	  <!-- https://mvnrepository.com/artifact/io.rest-assured/rest-assured -->
 <dependency>
@@ -86,4 +102,6 @@
 		</dependency>
 
   </dependencies>
+  
+  
 </project>
