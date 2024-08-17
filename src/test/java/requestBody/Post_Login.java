@@ -21,19 +21,13 @@ public class Post_Login {
 	 String reqBody;
 	 
 	 
-//	 public List<Map<String, String>>  getLoginData() {
-//		 List<Map<String, String>> testData;
-//			testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
-//			return testData;
-//	 }
-	 @Test
+
 	public String getLoginReqBody(Map<String, String> testdata) throws Exception {
          
 		 
              login = new User_Login(testdata.get("password"), testdata.get("userLoginEmail"));
             System.out.println(testdata);
-            // Handling expected status code if needed later
-//             exp_status_code = Integer.parseInt(testdata.get("StatusCode"));
+
             System.out.println(testdata.get("password"));
             
 
