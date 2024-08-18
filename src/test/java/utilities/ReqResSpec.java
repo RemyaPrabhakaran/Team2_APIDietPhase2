@@ -15,7 +15,8 @@ import io.restassured.specification.ResponseSpecification;
 public class ReqResSpec {
 	RequestSpecification request;
 	ResponseSpecification response;
-	 String baseURI = "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician";
+	ResourceBundleReader reader = new ResourceBundleReader();
+	 String baseURI = reader.getBaseURI();
 	int exp_status_code;
 	
 	public RequestSpecification ReqSpec() throws FileNotFoundException {

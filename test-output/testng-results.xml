@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="9" passed="0" failed="9" skipped="0">
+<testng-results ignored="0" total="9" passed="8" failed="1" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-17T13:56:52 IST" name="Default suite" finished-at="2024-08-17T13:57:00 IST" duration-ms="7845">
+  <suite started-at="2024-08-18T00:14:50 IST" name="Default suite" finished-at="2024-08-18T00:14:58 IST" duration-ms="7405">
     <groups>
       <group name="cucumber">
         <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-08-17T13:56:52 IST" name="Default test" finished-at="2024-08-17T13:57:00 IST" duration-ms="7845">
+    <test started-at="2024-08-18T00:14:50 IST" name="Default test" finished-at="2024-08-18T00:14:58 IST" duration-ms="7405">
       <class name="testRunner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:52 IST" name="setUpClass" finished-at="2024-08-17T13:56:53 IST" duration-ms="606" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="setUpClass" finished-at="2024-08-18T00:14:51 IST" duration-ms="569" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@126af200]]>
+                <![CDATA[org.testng.TestRunner@7f1fec57]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="91" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="78" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -34,21 +34,10 @@
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="11" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="8" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -61,21 +50,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="10" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="9" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -88,21 +66,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="13" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="13" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -115,21 +82,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="8" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -142,21 +98,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="10" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="6" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -169,21 +114,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="9" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="7" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -196,21 +130,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:56:53 IST" duration-ms="9" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:51 IST" duration-ms="7" status="PASS">
           <params>
             <param index="0">
               <value>
@@ -223,21 +146,10 @@ at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team
               </value>
             </param>
           </params>
-          <exception class="io.cucumber.java.PendingException">
-            <message>
-              <![CDATA[TODO: implement me]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[io.cucumber.java.PendingException: TODO: implement me
-at stepDefinition.DieticianPutStepDef.admin_is_logged_in_with_valid_credentials(DieticianPutStepDef.java:11)
-at ✽.Admin is logged in with valid credentials(file:///C:/Users/chand/git/Team2_APIDietPhase2/src/test/resources/Features/Dietician_Put.feature:6)
-]]>
-            </full-stacktrace>
-          </exception> <!-- io.cucumber.java.PendingException -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:56:53 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-17T13:57:00 IST" duration-ms="6956" status="FAIL">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:51 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-18T00:14:58 IST" duration-ms="6574" status="FAIL">
           <params>
             <param index="0">
               <value>
@@ -294,7 +206,7 @@ at ✽.User send POST HTTP request with endpoint(file:///C:/Users/chand/git/Team
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-17T13:57:00 IST" name="tearDownClass" finished-at="2024-08-17T13:57:00 IST" duration-ms="49" status="PASS">
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestRunner@1033576a]" started-at="2024-08-18T00:14:58 IST" name="tearDownClass" finished-at="2024-08-18T00:14:58 IST" duration-ms="69" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->
