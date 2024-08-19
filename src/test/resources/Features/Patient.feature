@@ -1,12 +1,24 @@
-Feature: Post Operation [create patient
-Background: 
-Given Set dietician bearer token
+Feature: Post Operation [create patient]
 
-Scenario: Check dietician able to create patient with valid data and token 
-Given Dietician creates POST request by entering valid data. Mandatory and additional details into the form-data key and value fields.
-When Dietician send POST http request with endpoint
-Then Dietician recieves 201 created and with response body. Auto created dietician ID and login password
+  Background: 
+    Given Set dietician bearer token
 
+  Scenario Outline: Patient ceation
+    Given Dietician creates POST request by entering  data for the "<scenario>" from the "<sheet>"
+    When Dietician send POST http request with endpoint
+    Then Dietician recieves response for the respective "<scenario>"
+
+    Examples: 
+      | scenario          | sheet       |
+      | ValidOne          | PatientPost |
+      | ValidTwo          | PatientPost |
+      | ValidAdditional   | PatientPost |
+      | InvalidData       | PatientPost |
+      | InvalidAdditional | PatientPost |
+      | Duplicate         | PatientPost |
+      #| InvalidMethod          | PatientPost  |     
+      #| InvalidEndPoint        | PatientPost  |     
+      #|InvalidContent          | PatientPost  |
 
 
 
