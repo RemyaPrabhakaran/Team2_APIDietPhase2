@@ -1,3 +1,4 @@
+
 Feature: Post Operation [create dietician]
 
   Background: 
@@ -6,6 +7,7 @@ Feature: Post Operation [create dietician]
   Scenario: Dietician ceation
     Given Admin creates POST request by entering  data for  "valid" from the "DieticianPost" sheet
     When Admin send POST http request with endpoint
-    Then Dietician created with status code 200
+    Then Dietician created with status code 201
 
    
+

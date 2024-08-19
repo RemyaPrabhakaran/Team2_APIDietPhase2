@@ -13,6 +13,7 @@ import io.restassured.specification.RequestSpecification;
 import io.restassured.specification.ResponseSpecification;
 
 public class ReqResSpec {
+
 	 RequestSpecification request;
 	ResponseSpecification response;
 	 static String baseURI = "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician";
@@ -27,6 +28,11 @@ public class ReqResSpec {
 						//.setContentType(ContentType.JSON)
 						.build();
 			
+
+	
+	
+	
+
 			
 		return request;
 		

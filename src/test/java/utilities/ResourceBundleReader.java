@@ -3,6 +3,10 @@ package utilities;
 import java.util.ResourceBundle;
 
 public class ResourceBundleReader {
+
+
+
+
 	private ResourceBundle dataRead;
 
 	public ResourceBundleReader() {
