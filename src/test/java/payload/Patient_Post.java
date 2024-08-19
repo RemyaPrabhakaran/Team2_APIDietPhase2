@@ -1,14 +1,19 @@
 package payload;
 
 public class Patient_Post {
+	
+   
+	public String LastName;
+    public long ContactNumber;
+    public String Email;
+    public String Allergy;
+    public String FoodCategory;
+    public String DateOfBirth;
 
 	public  String FirstName;
-	public  String LastName;
-    public  long ContactNumber;
-    public  String Email;
-    public  String Allergy;
+	
     public  String FoodPreference;
-    public  String DateOfBirth;
+   
     public  String CuisineCategory;
 
     
