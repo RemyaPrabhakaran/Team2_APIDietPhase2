@@ -6,6 +6,11 @@ import java.util.Map;
 
 import org.testng.Assert;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.JsonNode;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -22,7 +27,7 @@ public class AdminLoginStepDef {
 	  Response response;
 	  String body;
 	  int exp_status_code;
-	 
+	  public static String admintoken;
 	   
 		
 
@@ -34,7 +39,7 @@ public void admin_sets_the_authorization_to_no_auth() {
 @Given("User creates Post request with request body.")
 public void user_creates_post_request_with_request_body() throws Exception {
 	
-	List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
+	List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap("C:\\Users\\rashm\\git\\Team2_APIDietPhase2RestAssured\\src\\test\\resources\\Data\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
 	for(Map<String, String> data : testData) {
 		body = postLogin.getLoginReqBody(data);
 		 exp_status_code = Integer.parseInt(data.get("StatusCode"));
@@ -61,7 +66,14 @@ public void user_send_post_http_request_with_endpoint() {
 }
 
 @Then("User recieves {int} created with response body")
-public void user_recieves_created_with_response_body(Integer int1) {
+public void user_recieves_created_with_response_body(Integer int1) throws JsonMappingException, JsonProcessingException {
+	String responseBody= response.body().asString();
+	
+	 ObjectMapper objectMapper = new ObjectMapper();
+       
+           com.fasterxml.jackson.databind.JsonNode jsonNode = objectMapper.readTree(responseBody);
+          admintoken = jsonNode.get("token").asText();
+           System.out.println("Token: " + admintoken);
    
 }
 

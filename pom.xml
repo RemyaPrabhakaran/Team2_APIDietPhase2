@@ -53,7 +53,7 @@
 <dependency>
     <groupId>org.testng</groupId>
     <artifactId>testng</artifactId>
-    <version>7.10.2</version>
+    <version>7.4.0</version>
     <scope>test</scope>
 </dependency>
 <!-- https://mvnrepository.com/artifact/org.apache.poi/poi -->
@@ -100,6 +100,11 @@
 			<artifactId>cucumber-testng</artifactId>
 			<version>7.17.0</version>
 		</dependency>
+		<dependency>
+    <groupId>ch.qos.logback</groupId>
+    <artifactId>logback-classic</artifactId>
+    <version>1.2.3</version>
+</dependency>
 
   </dependencies>
   

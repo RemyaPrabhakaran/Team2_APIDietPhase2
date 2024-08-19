@@ -31,11 +31,4 @@
 		<nature>org.eclipse.jdt.core.javanature</nature>
 		<nature>org.eclipse.m2e.core.maven2Nature</nature>
 	</natures>
-	<linkedResources>
-		<link>
-			<name>src/test/resources/Data/Team2_APIDiet_Data.xlsx</name>
-			<type>1</type>
-			<location>D:/Rathna/Hackathons/Team2_APIDiet_RestAssured/Team2_APIDiet_Data.xlsx</location>
-		</link>
-	</linkedResources>
 </projectDescription>
