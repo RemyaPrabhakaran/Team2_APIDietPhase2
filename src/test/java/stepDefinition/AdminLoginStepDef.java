@@ -1,59 +1,86 @@
 package stepDefinition;
 
-import java.io.PrintStream;
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-import org.testng.Assert;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
+import payload.User_Login;
 import requestBody.Post_Login;
+import utilities.ExcelUtilities;
 
 public class AdminLoginStepDef {
+	private Response response;
+	private User_Login.Request request;
+	private User_Login.Response res;
 	
-	Post_Login postLogin = new Post_Login();
-	  Response response;
-	 
-	   
-		
+	@Given("Authentication type is No Auth")
+	public void authentication_type_is_no_auth() {
+	   RestAssured.authentication = RestAssured.DEFAULT_AUTH;
+	}
 
-@Given("Admin sets the Authorization to no auth")
-public void admin_sets_the_authorization_to_no_auth() {
-   
-}
+	@Given("User create a Post Request body using credentials {string} {string} {int}")
+	public void user_create_a_post_request_body_using_credentials(String string, String sheet, Integer row) throws Exception {
+		request = Post_Login.UserLoginPostBody(sheet, row);
+		RestAssured.baseURI = request.getBaseUrl();
+	}
+	
+	@When("User sends Post Request")
+	public void user_sends_post_request() {
+		response = RestAssured.given().contentType(request.getContentType()).body(request).log().all().when().post(request.getEndpoint());
+		System.out.println("Response Body: " + response.getBody().asString());
+	    if (response.statusCode() == 200) {
+	       res = response.getBody().as(User_Login.Response.class);
+	       System.out.println("TOKEN: " + res.getToken());
+	    }
+	}
 
-@Given("User creates Post request with request body.")
-public void user_creates_post_request_with_request_body() throws Exception {
-	 
-	String body =  postLogin.UserLoginPost();
-	System.out.println(body);
-response = RestAssured
-    .given()
-    	.baseUri("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login")
-    	.header("Content-Type", "application/json")
-    	.body(body)
-    .when()
-    	.post()
-    .then()
-    	.assertThat().statusCode(200)
-    	.log().ifStatusCodeIsEqualTo(200).extract().response();
-  int status_code = response.getStatusCode();
-  Assert.assertEquals(status_code, 200, "correct status code returned");
-   
-}
-
-@When("User send POST HTTP request with endpoint")
-public void user_send_post_http_request_with_endpoint() {
-   
-}
-
-@Then("User recieves {int} created with response body")
-public void user_recieves_created_with_response_body(Integer int1) {
-   
-}
-
+	@Then("the User receives status for scenario {string} {string} {int}")
+	public void the_user_receives_status_for_scenario(String string, String sheet, Integer row) {
+	    String status_code = Post_Login.getStatusCode(sheet, row);
+	    assertEquals(Integer.parseInt(status_code), response.getStatusCode());
+	    System.out.println("status: " + response.getStatusCode());
+	    if (string.contentEquals("Valid Credentials") ||
+	    	(string.contentEquals("Valid Dietician Credentials")) ||
+	    	(string.contentEquals("Valid Patient Credentials"))) {
+	    	assertEquals("Bearer ", res.getType());
+			if (res.getUserId() > 0) {
+				assertTrue(true);
+			} else {
+				assertTrue(false);
+			}
+			assertEquals(request.getUserLoginEmail(), res.getLoginUserEmail());
+			if (res.getToken().isEmpty()) {
+				assertTrue(false);
+			}
+			if((res.getRoles().contains("ROLE_ADMIN")) ||
+				(res.getRoles().contains("ROLE_DIETICIAN")) ||
+				(res.getRoles().contains("ROLE_PATIENT"))) {
+				assertTrue(true);
+			} else {
+				assertTrue(false);
+			}
+			
+			if (string.contentEquals("Valid Credentials")) {
+			    User_Login.adminBearerToken = res.getToken();
+			    System.out.println("admin token:" + User_Login.adminBearerToken);
+			}
+			
+			if (string.contentEquals("Valid Dietician Credentials")) {
+			    User_Login.dieticianBearerToken = res.getToken();
+			    System.out.println("dietician token:" + User_Login.dieticianBearerToken);
+			}
+			
+			if (string.contentEquals("Valid Patient Credentials")) {
+			    User_Login.patientBearerToken = res.getToken();
+			    System.out.println("patient token:" + User_Login.patientBearerToken);
+			}
+	    }
+	}
 }

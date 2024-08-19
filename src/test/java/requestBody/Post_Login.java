@@ -11,37 +11,37 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
 import payload.User_Login;
+import payload.User_Login.Request;
 import utilities.ExcelUtilities;
 
 public class Post_Login {
-	 Response response;
-	public String UserLoginPost() throws Exception {
+	 public static Response response;
+	 public static User_Login.Request request;
+	 public static User_Login.Request UserLoginPostBody(String sheet, int rowNo) throws Exception {
 		List<Map<String, String>> testData;
-		testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
-		String reqBody = null;
-		for (Map<String, String> data : testData) {
-           
-            User_Login login = new User_Login(data.get("password"), data.get("userLoginEmail"));
-
-            // Handling expected status code if needed later
-            int exp_status_code = Integer.parseInt(data.get("StatusCode"));
-            System.out.println(data.get("password"));
-            
-
-            // Converting User_Login object to JSON string
-            ObjectMapper objectMapper = new ObjectMapper();
-            try {
-                reqBody = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(login);
-                
-            
-            } catch (JsonProcessingException e) {
-                e.printStackTrace();
-                throw new Exception("Error while processing JSON", e);
-            }
-
-            
-        }
-		return reqBody;
+		testData = ExcelUtilities.getTestDataInMap("C:\\Users\\kundu\\Documents\\Testdatafiles\\Team2_APIDiet_Data.xlsx", sheet, "UserLoginPost");
+		System.out.println("Test Data: " + testData);
+		System.out.println("row: " + rowNo);
+		Map<String, String> rowData = testData.get(rowNo);
+        System.out.println("Row Data: " + rowData);
+        //Initialize class object and call constructor
+		request = new User_Login.Request(rowData.get("userLoginEmail"),rowData.get("password"));
+		System.out.println("Request after initialization: " + request);
+		request.setBaseUrl(rowData.get("BaseUrl"));
+	    request.setEndpoint(rowData.get("Endpoint"));
+	    request.setContentType(rowData.get("ContentType"));
+	    System.out.println("content: " + request.getContentType());
+	    System.out.println("Final Request Object: " + request);
+		return request;	
 	}
-
+	 
+	public static String getStatusCode(String sheet, Integer row) {
+		List<Map<String, String>> testData;
+		testData = ExcelUtilities.getTestDataInMap("C:\\Users\\kundu\\Documents\\Testdatafiles\\Team2_APIDiet_Data.xlsx", sheet, "UserLoginPost");
+		System.out.println("Test Data: " + testData);
+		System.out.println("row: " + row);
+		Map<String, String> rowData = testData.get(row);
+		
+		return(rowData.get("StatusCode"));
+	}
 }

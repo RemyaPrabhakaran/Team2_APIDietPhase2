@@ -17,6 +17,8 @@ public class ExcelUtilities {
 		List<Map<String, String>> testDataList = new ArrayList<Map<String,String>>();
 		String query = null;
 		query = String.format("SELECT * FROM %s WHERE Feature = '%s'", sheetName,feature);
+		System.out.println("Query: " + query);
+		System.out.println("Test Data File: " + testDataFile);
 		Fillo fillo = new Fillo();
 		Connection conn = null;
 		Recordset recordSet = null;
