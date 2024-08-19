@@ -1,11 +1,9 @@
 package requestBody;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
 import org.testng.Assert;
-import org.testng.annotations.Test;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -17,24 +15,17 @@ import utilities.ExcelUtilities;
 
 public class Post_Login {
 	 Response response;
-	 User_Login login;
-	 String reqBody;
-	 
-	 
-//	 public List<Map<String, String>>  getLoginData() {
-//		 List<Map<String, String>> testData;
-//			testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
-//			return testData;
-//	 }
-	 @Test
-	public String getLoginReqBody(Map<String, String> testdata) throws Exception {
-         
-		 
-             login = new User_Login(testdata.get("password"), testdata.get("userLoginEmail"));
-            System.out.println(testdata);
+	public String UserLoginPost() throws Exception {
+		List<Map<String, String>> testData;
+		testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
+		String reqBody = null;
+		for (Map<String, String> data : testData) {
+           
+            User_Login login = new User_Login(data.get("password"), data.get("userLoginEmail"));
+
             // Handling expected status code if needed later
-//             exp_status_code = Integer.parseInt(testdata.get("StatusCode"));
-            System.out.println(testdata.get("password"));
+            int exp_status_code = Integer.parseInt(data.get("StatusCode"));
+            System.out.println(data.get("password"));
             
 
             // Converting User_Login object to JSON string
@@ -43,12 +34,15 @@ public class Post_Login {
                 reqBody = objectMapper.writerWithDefaultPrettyPrinter().writeValueAsString(login);
                 
             
-            } catch (JsonProcessingException e) {
+            } 
+            catch (JsonProcessingException e) {
                 e.printStackTrace();
                 throw new Exception("Error while processing JSON", e);
             }
-		 
+
+            
+        }
 		return reqBody;
-	 }
+	}
 
 }

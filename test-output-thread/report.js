@@ -1,4 +1,4 @@
 $(document).ready(function() {
-CucumberHTML.timelineItems.pushArray([{"id":"341bfbcb-53c6-45b0-a5cb-c479fda193c1","feature":"User Login","scenario":"Check user able to login as admin with valid data","start":1723797148717,"group":1,"content":"","tags":"","end":1723797154834,"className":"passed"}]);
-CucumberHTML.timelineGroups.pushArray([{"id":1,"content":"Thread[main,5,main]"}]);
+CucumberHTML.timelineItems.pushArray([{"id":"53a4dc5f-e93d-4456-93fa-0d832cc840c8","feature":"Get Operation [Get all Patients]","scenario":"Check dietician able to retrieve all patient with invalid endpoint","start":1724072156807,"group":1,"content":"","tags":"","end":1724072184257,"className":"passed"},{"id":"94678e0d-a6bb-41de-b1e3-4c6815730564","feature":"Get Operation [Get all Patients]","scenario":"Check dietician able to retrieve all patient with invalid method","start":1724072127882,"group":1,"content":"","tags":"","end":1724072156786,"className":"passed"},{"id":"b6535291-9589-4a40-847d-31fd681ab0a1","feature":"Get Operation [Get all Patients]","scenario":"Check dietician able to retrieve all patients","start":1724072113578,"group":1,"content":"","tags":"","end":1724072127856,"className":"passed"}]);
+CucumberHTML.timelineGroups.pushArray([{"id":1,"content":"Thread[#1,main,5,main]"}]);
 });
