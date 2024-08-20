@@ -3,14 +3,19 @@ package stepDefinition;
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertTrue;
 
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
+import java.io.File;
+
+import org.apache.logging.log4j.core.util.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
+import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import payload.GetallMorbidities;
 import payload.User_Login;
@@ -47,25 +52,48 @@ public class GetallMorbiditiesStepdef {
 		String status_code = Get_Morbidity.getStatusCode(sheet, row);
 	    assertEquals(Integer.parseInt(status_code), response.getStatusCode());
 	    
+	    /* Validations */
 	    if (response.getStatusCode() == 200) {
+	    	/* Validate response schema */
+		    response.then().assertThat().body(JsonSchemaValidator.matchesJsonSchema(new File("src/test/resources/schema/GetallMorbiditiesjsonschema.txt")));
+		    
 	    	List<GetallMorbidities.Response> responseList = response.jsonPath().getList("", GetallMorbidities.Response.class);
 	    	
-	        /* No Duplicate Morbidity index */
-	    	Set<Integer> morbidityIdSet = responseList.stream()
-	                .map(GetallMorbidities.Response::getMorbidityId)
-	                .collect(Collectors.toSet());
-	    	if (responseList.size() == responseList.size()) {
+	    	Set<Integer> morbidityIdSet = new HashSet<>();
+	    	for (GetallMorbidities.Response item : responseList) {
+	    	    morbidityIdSet.add(item.getMorbidityId());
+	    	}
+	    	
+	    	if (responseList.size() == morbidityIdSet.size()) {
 	    		assertTrue(true);
 	    	} else {
 	    		assertTrue(false);
 	    	}
 	    	
-	    	/* Valid markermin value is < markermax value */
+	    	
 	    	for (GetallMorbidities.Response item : responseList) {
+	    		/* Valid markermin value is < markermax value */
 	            double minVal = item.getMorbidityMarkerMinVal();
 	            double maxVal = item.getMorbidityMarkerMaxVal();
 	            if (minVal > maxVal) {
 	            	throw new AssertionError("morbidityMarkerMinVal (" + minVal + ") is greater than morbidityMarkerMaxVal (" + maxVal + ") for morbidityId " + item.getMorbidityId());
+	            }
+	            
+	            /* Validate morbidity testnames */
+	            String testname = item.getMorbidityTestName();
+	            String[] validTestNames = {"Fasting Glucose",
+	            			               "Average Glucose",
+	            			               "Plasma Glucose",
+	            			               "HbA1c",
+	            			               "TSH",
+	            			               "T3",
+	            			               "T4",
+	            			               "Blood Pressure Levels"};
+	            Set<String> validTestNamesSet = new HashSet<>(List.of(validTestNames));
+	            if(validTestNamesSet.contains(testname)) {
+	            	assertTrue(true);		
+	            } else {
+	            	assertTrue(false,"testname is not correct:" + item.getMorbidityTestName());
 	            }
 	        }
 	    }

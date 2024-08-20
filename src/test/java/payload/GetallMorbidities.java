@@ -46,6 +46,7 @@ public class GetallMorbidities {
 		private String morbidityNameRegex;
 		private String morbidityTestName;
 		private String morbidityTestUnit;
+		
 		public int getMorbidityId() {
 			return morbidityId;
 		}
