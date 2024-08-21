@@ -1,19 +1,19 @@
 Request method:	GET
-Request URI:	https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/ptient/testReports/viewFile/66c5459721e15d41dc592f8f
+Request URI:	https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient/testReports/989
 Proxy:			<none>
 Request params:	<none>
 Query params:	<none>
 Form params:	<none>
-Path params:	fileId=66c5459721e15d41dc592f8f
-Headers:		Authorization=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyMDA5MzcsImV4cCI6MTcyNDIyOTczN30.Hn53lVwD7NORGlVBDTUpWKdm52mkail2tJQPbb9J-EaoHSUnVpPd4FrznZ3m2-Rdm_6y2uakHMqIj57dUkHAjQ
+Path params:	patientId=989
+Headers:		Authorization=Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyNTg4NTYsImV4cCI6MTcyNDI4NzY1Nn0.kf9xaJOGqVTUiyrp0XrbRduwaVvKI_03hUdIygDdHHvf99VoqatrKb22Vo-xm3-H2BpWmIHk2StkimEHXWfn_Q
 				Accept=*/*
 Cookies:		<none>
 Multiparts:		<none>
 Body:			<none>
 HTTP/1.1 404 
 Server: Cowboy
-Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1724204444&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=1%2FFsUtgzdd6NvNdtp58kLP65XNJxRBFx2geGKXv7asI%3D"}]}
-Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1724204444&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=1%2FFsUtgzdd6NvNdtp58kLP65XNJxRBFx2geGKXv7asI%3D
+Report-To: {"group":"heroku-nel","max_age":3600,"endpoints":[{"url":"https://nel.heroku.com/reports?ts=1724258941&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=1Ydl2qztoNwHv9gJy%2BeeQsalc0JXSnio71WsSmuzbC0%3D"}]}
+Reporting-Endpoints: heroku-nel=https://nel.heroku.com/reports?ts=1724258941&sid=c46efe9b-d3d2-4a0c-8c76-bfafa16c5add&s=1Ydl2qztoNwHv9gJy%2BeeQsalc0JXSnio71WsSmuzbC0%3D
 Nel: {"report_to":"heroku-nel","max_age":3600,"success_fraction":0.005,"failure_fraction":0.05,"response_headers":["Via"]}
 Connection: keep-alive
 Vary: Origin
@@ -28,12 +28,10 @@ Strict-Transport-Security: max-age=31536000 ; includeSubDomains
 X-Frame-Options: DENY
 Content-Type: application/json
 Transfer-Encoding: chunked
-Date: Wed, 21 Aug 2024 01:40:44 GMT
+Date: Wed, 21 Aug 2024 16:49:01 GMT
 Via: 1.1 vegur
 
 {
-    "timestamp": "2024-08-21T01:40:44.674+00:00",
-    "status": 404,
-    "error": "Not Found",
-    "path": "/dietician/ptient/testReports/viewFile/66c5459721e15d41dc592f8f"
+    "errorCode": "NOT_FOUND",
+    "errorMessage": "Patient not found with patientId : 989"
 }

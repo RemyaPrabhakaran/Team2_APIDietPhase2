@@ -3,11 +3,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = {"C:\\Users\\rashm\\git\\Team2_APIDietPhase2RestAssured\\src\\test\\resources\\Features\\Patient.feature",
-				"C:\\Users\\rashm\\git\\Team2_APIDietPhase2RestAssured\\src\\test\\resources\\Features\\PatientGetMorbDetails.feature",
-				"C:\\Users\\rashm\\git\\Team2_APIDietPhase2RestAssured\\src\\test\\resources\\Features\\PatientGetRetrivePatientFile.feature"
-		},
+		features = "src/test/resources/Features",
+	
         glue = {"stepDefinition"},
+        		 tags = "@tag1 or @tag2 or @tag3 or @tag4 or @tag5",
         		   plugin = {"pretty","html:HtmlReport/report.html",
         		    		"json:JSONReport/report.json",
         		    		

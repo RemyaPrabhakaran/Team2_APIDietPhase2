@@ -1,8 +1,8 @@
 Feature: Put Operation [Add New Reports with/without Vitals for existing Patient
 
   Background: 
-    Given Set dietician bearer token
-
+    Given Set dietician bearer token for put
+@tag2
   Scenario Outline: Update patient Add New Reports with/without Vitals for existing Patient
     Given Dietician creates PUT request by entering  data for the "<scenario>" from the "<sheet>"
     When Dietician send PUT http request with endpoint

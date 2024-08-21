@@ -1,9 +1,8 @@
-
 Feature: Get Operation [Get Patients Morbidity Details ]
 
 Background: 
-    Given Set dietician bearer token
-
+    Given Set dietician bearer token for delete
+@tag5
    Scenario: Check dietician able to delete patient by ID
   
     Given Dietician create DELETE request  
@@ -27,4 +26,6 @@ Background:
     Given Dietician create DELETE request 
     When Dietician send DELETE http request with invalid endpoint
     Then Dietician recieves 404 for deletion
+    
+    
     

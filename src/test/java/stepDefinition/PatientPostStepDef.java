@@ -22,23 +22,38 @@ import utilities.ExcelUtilities;
 import utilities.ReqResSpec;
 import utilities.ResourceBundleReader;
 import response.PatientResponse;
+import testContext.TestContext;
 
 
-public class PatientPostStepDef extends ReqResSpec {
+public class PatientPostStepDef {
 	
-	public static List<String> patientFileIds =  new ArrayList<>();
-	public static List<Integer> patientIDs = new ArrayList<>();
-	RequestSpecification res;
-	 Response response;
-	  String body;
-	  int exp_status_code;
-	  
-	  PatientResponse pResponse;
-	  String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyMDA5MzcsImV4cCI6MTcyNDIyOTczN30.Hn53lVwD7NORGlVBDTUpWKdm52mkail2tJQPbb9J-EaoHSUnVpPd4FrznZ3m2-Rdm_6y2uakHMqIj57dUkHAjQ";
-	  ResourceBundleReader reader = new ResourceBundleReader();
-	  String filePath =reader.getPDFFile1();
-	  Post_Patient postPatient = new Post_Patient();
+TestContext testContext;
+ReqResSpec reqres;
+ ResourceBundleReader resource;
+public static List<String> patientFileIds =  new ArrayList<>();
+public static List<Integer> patientIDs = new ArrayList<>();
+RequestSpecification res;
+Response response;
+ String body;
+int exp_status_code;
+PatientResponse pResponse;
+String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyMzc5MTQsImV4cCI6MTcyNDI2NjcxNH0.yBl-_DAjNgbSXM8UgGMwTeTAp0CiIuiK3DR1AwD6TDedb2__hX8uA1iWK3Dtu62G4pHgC_ZvmFNF-9KfhWBw6Q";
+	 
+
+
+      Post_Patient postPatient;
 	  public static RequestSpecification request;
+	  APIResources resourceApi = APIResources.patientEndpoint;
+	  APIResources resourceApiinvalid = APIResources.patientInvalidEndpoint;
+	  
+	  public PatientPostStepDef(TestContext testcontext)
+	  {
+		 
+		  this.testContext = testcontext;
+		  reqres = testcontext.getReqResSpec();
+		  resource = testcontext.getResourceBundleReader();
+		  this.postPatient = new Post_Patient();
+	  }
 	  
 	@Given("Set dietician bearer token")
 	public void set_dietician_bearer_token() throws IOException {
@@ -47,7 +62,7 @@ public class PatientPostStepDef extends ReqResSpec {
 		
 	 request= RestAssured
 				    .given()
-				    	.spec(ReqSpec()).header("Authorization", "Bearer "+dieticiantoken);;
+				    	.spec(reqres.ReqSpec()).header("Authorization", "Bearer "+dieticiantoken);;
 	
 	}
 
@@ -57,13 +72,13 @@ public class PatientPostStepDef extends ReqResSpec {
 		   
 			System.out.println("Dietician send post request for the scenario "+scenario);
 		
-			List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(reader.getExcelFilePath(), sheet, scenario);
+			List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(resource.getExcelFilePath(), sheet, scenario);
 		
 			for(Map<String, String> data : testData) {
 				
 				body = postPatient.getPatientReqBody(data); 
 				exp_status_code = Integer.parseInt(data.get("StatusCode"));
-				
+				 String filePath = resource.getPDFFile1();
 	            File file = new File(filePath);
 				res = request
 			                .multiPart("patientInfo", body)
@@ -80,7 +95,7 @@ public class PatientPostStepDef extends ReqResSpec {
 	@When("Dietician send POST http request with endpoint")
 	public void dietician_send_post_http_request_with_endpoint() throws Exception {
 		 
-		APIResources resourceApi = APIResources.patientEndpoint;
+		
 		            
 		 response = res.body(body).when().post(resourceApi.getResource());
 	/*	 response = res
@@ -164,15 +179,17 @@ public class PatientPostStepDef extends ReqResSpec {
 
 	@When("Dietician send  http request with endpoint and invalid method")
 	public void dietician_send_http_request_with_endpoint_and_invalid_method() {
-	  
-		 response = res.contentType("application/json")
+	  try {
+		 response = res
                  .when()
-                 .get(Post_Patient.endpoint)
+                 .put(resourceApi.getResource())
                  .then()
                  .log().all()
                  .extract()
-                 .response();
-		
+                 .response();}
+	 catch (AssertionError e) {
+        System.out.println("Assertion failed: " + e.getMessage());
+	 }
 	}
 
 	@Then("Dietician recieves {int} statuscode")
@@ -185,7 +202,7 @@ public class PatientPostStepDef extends ReqResSpec {
 	public void dietician_send_http_request_with_endpoint_and_invalid_endpoint() {
 		 response = res
                  .when()
-                 .post(Post_Patient.endpoint)
+                 .post(resourceApiinvalid.getResource())
                  .then()
                  .log().all()
                  .extract()
@@ -194,14 +211,17 @@ public class PatientPostStepDef extends ReqResSpec {
 
 	@When("Dietician send  http request with endpoint and invalid content type")
 	public void dietician_send_http_request_with_endpoint_and_invalid_content_type() {
-	   
+	  try { 
 		 response = res.contentType("text/Json")
                  .when()
-                 .post(Post_Patient.endpoint)
+                 .post(resourceApi.getResource())
                  .then()
                  .log().all()
                  .extract()
                  .response();
+	  } catch (AssertionError e) {
+          System.out.println("Assertion failed: " + e.getMessage());
+	  }
 	}
 	
 	

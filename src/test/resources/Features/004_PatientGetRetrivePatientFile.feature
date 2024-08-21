@@ -3,9 +3,9 @@ Feature: Get Operation [Retrieve Patient file by FileId ]
 
  
 Background: 
-    Given Set dietician bearer token
+    Given Set dietician bearer token 
 
-  
+  @tag4
   Scenario: Check dietician able to retrieve patients by field
     Given Dietician create requests to retrieve patients by field
    

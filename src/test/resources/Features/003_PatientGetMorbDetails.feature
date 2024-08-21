@@ -2,7 +2,7 @@ Feature: Get Operation [Get Patients Morbidity Details ]
 
 Background: 
     Given Set dietician bearer token
-
+@tag3
    Scenario: Check dietician able to retrieve patients morbidity details by patient id
   
     Given Dietician create request 

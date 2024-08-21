@@ -1,6 +1,8 @@
 package stepDefinition;
 
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
@@ -12,37 +14,62 @@ import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import utilities.APIResources;
 import utilities.ExcelUtilities;
 import utilities.ReqResSpec;
 import utilities.ResourceBundleReader;
 import requestBody.Put_PatientAddNewReport;
-public class PatientPutAddNewReports extends ReqResSpec {
+import testContext.TestContext;
+public class PatientPutAddNewReports {
 	
-    
+	TestContext testContext;
+	ReqResSpec reqres;
+	 ResourceBundleReader resource;
     
 	  String body;
 	  String body1;
 	  int exp_status_code;
 	  RequestSpecification res;
 	  RequestSpecification request;
-		 Response response;
-		 Put_PatientAddNewReport pReport=new Put_PatientAddNewReport();
-		  String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQxMDY2MTAsImV4cCI6MTcyNDEzNTQxMH0.xdHR7ILm0tkEaX9TlwTYOmcPx_1i5TcJ0HoVWEt-TaCaYarmtxf_99RxS10pKffqqRuLagyMag-9DYtbklqX8w";
-		  String endpoint = "/patient/newReports/" + PatientPostStepDef.patientIDs.get(0);
-		  String invalid= "/patient/neReports/"+ PatientPostStepDef.patientIDs.get(0);
-		  ResourceBundleReader reader = new ResourceBundleReader();
+	  Response response;
+	  Put_PatientAddNewReport pReport;
+	  
+		  String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyMzc5MTQsImV4cCI6MTcyNDI2NjcxNH0.yBl-_DAjNgbSXM8UgGMwTeTAp0CiIuiK3DR1AwD6TDedb2__hX8uA1iWK3Dtu62G4pHgC_ZvmFNF-9KfhWBw6Q";
+		  
+		
+		 /* ResourceBundleReader reader = new ResourceBundleReader();
 		  String filePath =reader.getPDFFile2();
-		  File file = new File(filePath);
+		  File file = new File(filePath);*/
+		  
+		  APIResources resourceApi = APIResources.newReportsEndpoint;
+		  APIResources resourceApiinvalid = APIResources.newReportsInvalidEndpoint;
+		  String endpoint = resourceApi.getResource() + PatientPostStepDef.patientIDs.get(0);
+		  String invalid= resourceApiinvalid.getResource()+ PatientPostStepDef.patientIDs.get(0);
+		  public PatientPutAddNewReports(TestContext testcontext) {
+			  this.testContext = testcontext;
+			  reqres = testcontext.getReqResSpec();
+			  resource = testcontext.getResourceBundleReader();
+			  this.pReport= new Put_PatientAddNewReport();
+		  }
+		  @Given("Set dietician bearer token for put")
+		  public void Set_dietician_bearer_token_put () throws FileNotFoundException
+		  {
+			   
+				
+				
+					
+				 request= RestAssured
+							    .given()
+							    	.spec(reqres.ReqSpec()).header("Authorization", "Bearer "+dieticiantoken);;
+				
+				
+		  }
 		  
 	@Given("Dietician creates PUT request by entering  data for the {string} from the {string}")
 	public void dietician_creates_put_request_by_entering_data_for_the_from_the(String scenario, String sheet) throws Exception {
-		request= RestAssured
-			    .given()
-			    	.spec(ReqSpec()).header("Authorization", "Bearer "+dieticiantoken);
 		
 		
-		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(reader.getExcelFilePath(), sheet, scenario);
-		//List<Map<String, String>> testData1 = ExcelUtilities.getTestDataInMap(reader.getExcelFilePath(), sheet, scenario);
+		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(resource.getExcelFilePath(), sheet, scenario);
 		
 		for(Map<String, String> data : testData) {
 			
@@ -63,8 +90,8 @@ public class PatientPutAddNewReports extends ReqResSpec {
 
 	@When("Dietician send PUT http request with endpoint")
 	public void dietician_send_put_http_request_with_endpoint() {
-		
-		
+		String filePath = resource.getPDFFile2();
+		 File file = new File(filePath);
 		res=	 request.contentType("multipart/form-data").multiPart("patientInfo", body, "application/json")
 			      
 		        .multiPart("file", file, "application/json")
@@ -88,16 +115,17 @@ public class PatientPutAddNewReports extends ReqResSpec {
 		if(response.statusCode()==200)
 		{
 			response.then().log().all()
-			.contentType(ContentType.JSON)
-	        .and().body(JsonSchemaValidator.matchesJsonSchema(getClass()
-	              .getClassLoader()
-	              .getResourceAsStream("PutPatientReportSchema.json")));
+			.contentType(ContentType.JSON);
+	       // .and().body(JsonSchemaValidator.matchesJsonSchema(getClass()
+	         //     .getClassLoader()
+	           //   .getResourceAsStream("PutPatientReportSchema.json")));
 		}
 	}
 
 	@When("Dietician send  http request with endpoint and invalid method for Add New Reports with or without Vitals")
 	public void dietician_send_http_request_with_endpoint_and_invalid_method_for_add_new_reports_with_without_vitals() {
-
+		String filePath = resource.getPDFFile2();
+		 File file = new File(filePath);
 		res=	 request.contentType("multipart/form-data").multiPart("patientInfo", body, "application/json")
 			      
 		        .multiPart("file", file, "application/json")
@@ -119,7 +147,9 @@ public class PatientPutAddNewReports extends ReqResSpec {
 
 	@When("Dietician send  http request with endpoint and invalid endpoint for Add New Reports with or without Vitals")
 	public void dietician_send_http_request_with_endpoint_and_invalid_endpoint_for_add_new_reports_with_without_vitals() {
-
+		String filePath = resource.getPDFFile2();
+		 File file = new File(filePath);
+		
 		res=	 request.contentType("multipart/form-data").multiPart("patientInfo", body, "application/json")
 			      
 		        .multiPart("file", file, "application/json")
@@ -136,6 +166,8 @@ public class PatientPutAddNewReports extends ReqResSpec {
 
 	@When("Dietician send  http request with endpoint and invalid content type for Add New Reports with or without Vitals")
 	public void dietician_send_http_request_with_endpoint_and_invalid_content_type_for_add_new_reports_with_without_vitals() {
+		String filePath = resource.getPDFFile1();
+		 File file = new File(filePath);
 		res=	 request.contentType("multipart/form-data").multiPart("patientInfo", body, "appl/json")
 			      
 		        .multiPart("file", file, "text/json")

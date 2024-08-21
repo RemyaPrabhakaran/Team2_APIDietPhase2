@@ -1,24 +1,49 @@
 package stepDefinition;
 
+import java.io.FileNotFoundException;
+
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
+import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import requestBody.Post_Patient;
+import testContext.TestContext;
+import utilities.APIResources;
 import utilities.ReqResSpec;
+import utilities.ResourceBundleReader;
 
-public class PAtientGetMorbDetailsStepDef extends ReqResSpec {
+public class PAtientGetMorbDetailsStepDef {
 	 RequestSpecification res;
  Response response;
- String endpoint = "/patient/testReports/{patientId}";
+ //String endpoint = "/patient/testReports/{patientId}";
+ 
+ APIResources resourceApi = APIResources.patientMorbiditiesEndpoint;
+ APIResources resourceApiinvalid = APIResources.patientMorbiditiesInvalidEndpoint;
+ String endpoint=resourceApi.getResource();
+ String invalidEndpoint=resourceApiinvalid.getResource();
+ TestContext testContext;
+ ReqResSpec reqres;
+  ResourceBundleReader resource;
+  String dieticiantoken="";
+
+ public PAtientGetMorbDetailsStepDef(TestContext testcontext) {
+ 	  this.testContext = testcontext;
+ 	  reqres = testcontext.getReqResSpec();
+ 	  resource = testcontext.getResourceBundleReader();
+ 	  
+ }
  
 	@Given("Dietician create request")
-	public void dietician_create_get_request() {
+	public void dietician_create_get_request() throws FileNotFoundException {
+	//	res= RestAssured
+			  //  .given()
+			    //	.spec(reqres.ReqSpec()).header("Authorization", "Bearer "+dieticiantoken).pathParam("patientId",PatientPostStepDef.patientIDs.get(0));;
 	   
 		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
 		

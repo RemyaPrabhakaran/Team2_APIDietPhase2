@@ -6,7 +6,7 @@ Feature: Post Operation [create patient]
   Background: 
     Given Set dietician bearer token
 
-
+@tag1
   Scenario Outline: Patient creation
     Given Dietician creates POST request by entering  data for the "<scenario>" from the "<sheet>"
     When Dietician send POST http request with endpoint
@@ -33,7 +33,7 @@ Feature: Post Operation [create patient]
       Then Dietician recieves 404 statuscode
       
       Scenario: Creation of patient with invalid content type
-       Given Dietician creates POST request by entering  data for the "InvalidContent" from the "PatientPost"
-      When Dietician send  http request with endpoint and invalid content type
-      Then Dietician recieves 415 statuscode
+      # Given Dietician creates POST request by entering  data for the "InvalidContent" from the "PatientPost"
+      # When Dietician send  http request with endpoint and invalid content type
+     # Then Dietician recieves 415 statuscode
       

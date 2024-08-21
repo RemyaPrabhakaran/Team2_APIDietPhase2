@@ -7,14 +7,33 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
+import testContext.TestContext;
+import utilities.APIResources;
 import utilities.ReqResSpec;
+import utilities.ResourceBundleReader;
 
 public class PatientGetRetrievePatientFile extends ReqResSpec {
 	
 	 RequestSpecification res;
 	 Response response;
-	String invalidEndpoint="/ptient/testReports/viewFile/{fileId}";
-	 String endpoint = "/patient/testReports/viewFile/{fileId}" ;
+	
+	 
+	 APIResources resourceApi = APIResources.RetrievePatientFileEndpoint;
+	 APIResources resourceApiinvalid = APIResources.RetrievePatientFileInvalidEndpoint;
+	 String endpoint=resourceApi.getResource();
+	 String invalidEndpoint=resourceApiinvalid.getResource();
+	 TestContext testContext;
+	 ReqResSpec reqres;
+	  ResourceBundleReader resource;
+
+	 public PatientGetRetrievePatientFile(TestContext testcontext) {
+	 	  this.testContext = testcontext;
+	 	  reqres = testcontext.getReqResSpec();
+	 	  resource = testcontext.getResourceBundleReader();
+	 	  
+	 }
+	 
+	
 	@Given("Dietician create requests to retrieve patients by field")
 	public void dietician_create_get_request_to_retrieve_patients_by_field() {
 		res=PatientPostStepDef.request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));

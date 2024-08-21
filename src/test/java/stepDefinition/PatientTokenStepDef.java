@@ -15,6 +15,8 @@ import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import requestBody.Post_Patient;
 import requestBody.Put_PatientAddNewReport;
+import testContext.TestContext;
+import utilities.APIResources;
 import utilities.ExcelUtilities;
 import utilities.ReqResSpec;
 import utilities.ResourceBundleReader;
@@ -25,21 +27,37 @@ public class PatientTokenStepDef extends ReqResSpec {
 	RequestSpecification request;
 	RequestSpecification res;
 	 Response response;
-	 
+	 Put_PatientAddNewReport pReport;
+	  Post_Patient postPatient;
+	 APIResources resourceApiPut = APIResources.newReportsEndpoint;
+	  APIResources resourceApiGet = APIResources.patientMorbiditiesEndpoint;
+	  APIResources resourceApiGetFile = APIResources.RetrievePatientFileEndpoint;
+	  APIResources resourceApiDelete = APIResources.DeletePatientEndpoint;
+	  String putendpoint = resourceApiPut.getResource() + PatientPostStepDef.patientIDs.get(0);
+	    String GetIDendpoint = resourceApiGet.getResource();
+	    String getfileIDendpoint=resourceApiGetFile.getResource();
+	    String deleteendpoint=resourceApiDelete.getResource();
+	
+	  TestContext testContext;
+	  ReqResSpec reqres;
+	   ResourceBundleReader resource;
 	    
-	    String putendpoint = "/patient/newReports/" + PatientPostStepDef.patientIDs.get(0);
-	    String GetIDendpoint = "/patient/testReports/{patientId}";
-	    String getfileIDendpoint="/patient/testReports/viewFile/{fileId}";
-	    String deleteendpoint="/patient/{patientId}";
-	 ResourceBundleReader reader = new ResourceBundleReader();
-	 String filePath =reader.getPDFFile1();
-	 File file = new File(filePath);
-	 Put_PatientAddNewReport pReport=new Put_PatientAddNewReport();
-	  Post_Patient postPatient = new Post_Patient();
+	    
+	 
+	
 	  
 	  String body;
 	  String body1;
 	  int exp_status_code;
+	  public PatientTokenStepDef(TestContext testcontext) {
+	  	  this.testContext = testcontext;
+	  	  reqres = testcontext.getReqResSpec();
+	  	  resource = testcontext.getResourceBundleReader();
+	  	  this.postPatient = new Post_Patient();
+	  	this.pReport=new Put_PatientAddNewReport();
+	  	  
+	  }
+	    
 	
 	@Given("Set patient token")
 	public void set_patient_token() throws FileNotFoundException {
@@ -51,15 +69,16 @@ public class PatientTokenStepDef extends ReqResSpec {
 
 	@Given("Patient creates POST request by entering valid data into the form-data key and value fields.")
 	public void patient_creates_post_request_by_entering_valid_data_into_the_form_data_key_and_value_fields() throws Exception {
-
-		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(reader.getExcelFilePath(), "PatientPost", "ValidOne"
+		 
+		 
+		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(resource.getExcelFilePath(), "PatientPost", "ValidOne"
 );
 		
 		for(Map<String, String> data : testData) {
 			
 			body = postPatient.getPatientReqBody(data); 
 			exp_status_code = Integer.parseInt(data.get("StatusCode"));
-			String filePath =reader.getPDFFile1();
+			String filePath =resource.getPDFFile1();
             File file = new File(filePath);
 			res = request
 		                .multiPart("patientInfo", body)
@@ -89,7 +108,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	@Given("Patient creates PUT request by entering valid data into the form-data key and value fields and valid patient ID")
 	public void patient_creates_put_request_by_entering_valid_data_into_the_form_data_key_and_value_fields_and_valid_patient_id() throws Exception {
 	   
-		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(reader.getExcelFilePath(), "PatientPutVitals", "Valid");
+		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(resource.getExcelFilePath(), "PatientPutVitals", "Valid");
 		//List<Map<String, String>> testData1 = ExcelUtilities.getTestDataInMap("src/test/resources/Data/Team2_APIDiet_Data.xlsx", "PatientPutVitals", "Valid");
 		
 		for(Map<String, String> data : testData) {
@@ -109,6 +128,8 @@ public class PatientTokenStepDef extends ReqResSpec {
 
 	@When("Patient send PUT http request with endpoint")
 	public void patient_send_put_http_request_with_endpoint() {
+		String filePath =resource.getPDFFile1();
+		 File file = new File(filePath);
 		res=	 request.contentType("multipart/form-data").multiPart("patientInfo", body, "application/json")
 			      
 		        .multiPart("file", file, "application/json")
