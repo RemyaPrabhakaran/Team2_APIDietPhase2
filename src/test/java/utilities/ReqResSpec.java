@@ -25,9 +25,7 @@ public class ReqResSpec {
 				.addFilter(RequestLoggingFilter.logRequestTo(log))
 				.addFilter(ResponseLoggingFilter.logResponseTo(log))
 				.setContentType(ContentType.JSON).build();
-			
 		return request;
-		
 	}
 	
 	public ResponseSpecification ResSpec() {
