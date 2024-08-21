@@ -1,75 +1,142 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results ignored="0" total="3" passed="3" failed="0" skipped="0">
+<testng-results ignored="0" total="4" passed="1" failed="3" skipped="0">
   <reporter-output>
   </reporter-output>
-  <suite started-at="2024-08-19T18:25:12 IST" name="Default suite" finished-at="2024-08-19T18:26:24 IST" duration-ms="71572">
+  <suite started-at="2024-08-21T17:46:17 IST" name="Default suite" finished-at="2024-08-21T17:46:32 IST" duration-ms="14895">
     <groups>
       <group name="cucumber">
-        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@4dc27487]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
+        <method signature="AbstractTestNGCucumberTests.runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@5aebe890]" name="runScenario" class="io.cucumber.testng.AbstractTestNGCucumberTests"/>
       </group> <!-- cucumber -->
     </groups>
-    <test started-at="2024-08-19T18:25:12 IST" name="Default test" finished-at="2024-08-19T18:26:24 IST" duration-ms="71572">
+    <test started-at="2024-08-21T17:46:17 IST" name="Default test" finished-at="2024-08-21T17:46:32 IST" duration-ms="14895">
       <class name="testRunner.TestRunner">
-        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestRunner@4dc27487]" started-at="2024-08-19T18:25:12 IST" name="setUpClass" finished-at="2024-08-19T18:25:13 IST" duration-ms="615" status="PASS">
+        <test-method is-config="true" signature="setUpClass(org.testng.ITestContext)[pri:0, instance:testRunner.TestRunner@5aebe890]" started-at="2024-08-21T17:46:17 IST" name="setUpClass" finished-at="2024-08-21T17:46:18 IST" duration-ms="802" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA[org.testng.TestRunner@1124910c]]>
+                <![CDATA[org.testng.TestRunner@507f7cd1]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUpClass -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@4dc27487]" started-at="2024-08-19T18:25:13 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-19T18:25:27 IST" duration-ms="14435" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@5aebe890]" started-at="2024-08-21T17:46:18 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-21T17:46:25 IST" duration-ms="6264" status="PASS">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Check dietician able to retrieve all patients"]]>
+                <![CDATA["Check admin able to create patient with valid data and admin token"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Get Operation [Get all Patients]"]]>
+                <![CDATA["Set Admin bearer"]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@4dc27487]" started-at="2024-08-19T18:25:27 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-19T18:25:56 IST" duration-ms="28918" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@5aebe890]" started-at="2024-08-21T17:46:25 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-21T17:46:30 IST" duration-ms="5248" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Check dietician able to retrieve all patient with invalid method"]]>
+                <![CDATA["Check admin able to update patient with valid data and admin token"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Get Operation [Get all Patients]"]]>
+                <![CDATA["Set Admin bearer"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [403] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [403] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1449)
+at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:13)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@4dc27487]" started-at="2024-08-19T18:25:56 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-19T18:26:24 IST" duration-ms="27467" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@5aebe890]" started-at="2024-08-21T17:46:30 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-21T17:46:31 IST" duration-ms="1312" status="FAIL">
           <params>
             <param index="0">
               <value>
-                <![CDATA["Check dietician able to retrieve all patient with invalid endpoint"]]>
+                <![CDATA["Check admin able to add new reports for existing patient with valid data and admin token"]]>
               </value>
             </param>
             <param index="1">
               <value>
-                <![CDATA["Get Operation [Get all Patients]"]]>
+                <![CDATA["Set Admin bearer"]]>
               </value>
             </param>
           </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [403] but found [400]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [403] but found [400]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1449)
+at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:18)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
           <reporter-output>
           </reporter-output>
         </test-method> <!-- runScenario -->
-        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestRunner@4dc27487]" started-at="2024-08-19T18:26:24 IST" name="tearDownClass" finished-at="2024-08-19T18:26:24 IST" duration-ms="80" status="PASS">
+        <test-method signature="runScenario(io.cucumber.testng.PickleWrapper,io.cucumber.testng.FeatureWrapper)[pri:0, instance:testRunner.TestRunner@5aebe890]" started-at="2024-08-21T17:46:31 IST" name="runScenario" description="Runs Cucumber Scenarios" data-provider="scenarios" finished-at="2024-08-21T17:46:32 IST" duration-ms="1147" status="FAIL">
+          <params>
+            <param index="0">
+              <value>
+                <![CDATA["Check admin is able to retrieve patients morbidity details by patient ID"]]>
+              </value>
+            </param>
+            <param index="1">
+              <value>
+                <![CDATA["Set Admin bearer"]]>
+              </value>
+            </param>
+          </params>
+          <exception class="java.lang.AssertionError">
+            <message>
+              <![CDATA[expected [403] but found [405]]]>
+            </message>
+            <full-stacktrace>
+              <![CDATA[java.lang.AssertionError: expected [403] but found [405]
+at org.testng.Assert.fail(Assert.java:111)
+at org.testng.Assert.failNotEquals(Assert.java:1578)
+at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+at org.testng.Assert.assertEquals(Assert.java:132)
+at org.testng.Assert.assertEquals(Assert.java:1419)
+at org.testng.Assert.assertEquals(Assert.java:1449)
+at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:34)
+]]>
+            </full-stacktrace>
+          </exception> <!-- java.lang.AssertionError -->
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- runScenario -->
+        <test-method is-config="true" signature="tearDownClass()[pri:0, instance:testRunner.TestRunner@5aebe890]" started-at="2024-08-21T17:46:32 IST" name="tearDownClass" finished-at="2024-08-21T17:46:32 IST" duration-ms="67" status="PASS">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- tearDownClass -->

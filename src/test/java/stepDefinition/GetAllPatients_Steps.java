@@ -2,6 +2,8 @@ package stepDefinition;
 
 import static org.testng.Assert.assertEquals;
 
+import java.io.FileNotFoundException;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -27,7 +29,7 @@ public void dietician_create_get_request()
 }
 
 @When("Dietician send GET http request with endpoint")
-public void dietician_send_get_http_request_with_endpoint() 
+public void dietician_send_get_http_request_with_endpoint() throws FileNotFoundException 
 {
 	
 	
@@ -49,13 +51,13 @@ public void dietician_create_put_request() {
 }
 
 @When("Dietician send PUT http request with invalid method with endpoint")
-public void dietician_send_put_http_request_with_invalid_method_with_endpoint() 
+public void dietician_send_put_http_request_with_invalid_method_with_endpoint() throws FileNotFoundException 
 {
 	response=gap.sendRequestWithInavalidMethod(Routes.dieticianToken);
 }
 
 @When("Dietician send GET http request with invalid endpoint")
-public void dietician_send_get_http_request_with_invalid_endpoint() {
+public void dietician_send_get_http_request_with_invalid_endpoint() throws FileNotFoundException {
 	response=gap.sendRequestWithInavalidEndPoint(Routes.dieticianToken);
 }
 }

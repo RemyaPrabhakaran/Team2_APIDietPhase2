@@ -28,7 +28,7 @@ public class Patient_Put
 	public static  JSONObject request=new JSONObject();
 	static Response response;
 	static Response	response1;
-	static String filepath = System.getProperty("user.dir")+"src/test/resources/TestReports/Hypo Thyroid-Report.pdf.pdf";
+	static String filepath = System.getProperty("user.dir")+"/src/test/resources/TestReports/Hypo Thyroid-Report.pdf.pdf";
 
 	public static void createPatient(String dietician_TKN)
 	 {
@@ -79,7 +79,9 @@ public class Patient_Put
 					 
 				
 			 String reqBody = " ";
-						UpdateUser up_user = new UpdateUser(data.get("FirstName"), data.get("LastName"),data.get("ContactNumber"),data.get("DateOfBirth"),data.get("Email")
+						UpdateUser up_user = new UpdateUser(data.get("FirstName"),
+								data.get("LastName"),data.get("ContactNumber")
+								,data.get("DateOfBirth"),data.get("Email")
 										,data.get("Allergy"),data.get("CuisineCategory"), data.get("FoodPreference"));
 				           
 						
@@ -127,7 +129,7 @@ public class Patient_Put
 									//"patientId": 246,
 									
 									//Put_URL = Base_URL + "/updateuser/{userId}";
-									.put("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient/{patientId}");
+									.put(Routes.baseUri+Routes.updatepatientEndpoint+"{patientId}");
 							 System.out.println("Response Body: " + response.getBody().asString());
 						//	System.out.println("Response Message:   "+response+"payload:   " +request);
 							   System.out.println("create patient   "+response.asPrettyString());
@@ -185,7 +187,7 @@ public class Patient_Put
 								//"patientId": 246,
 								
 								//Put_URL = Base_URL + "/updateuser/{userId}";
-								.put("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient/{patientId}");
+								.put(Routes.baseUri+Routes.updatepatientEndpoint+"{patientId}");
 						 System.out.println("Response Body: " + response.getBody().asString());
 					//	System.out.println("Response Message:   "+response+"payload:   " +request);
 						   System.out.println("create patient   "+response.asPrettyString());
@@ -249,7 +251,7 @@ public class Patient_Put
 								//"patientId": 246,
 								
 								//Put_URL = Base_URL + "/updateuser/{userId}";
-								.put("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient/{patientId}");
+								.put(Routes.baseUri+Routes.updatepatientEndpoint+"{patientId}");
 						 System.out.println("Response Body: " + response.getBody().asString());
 					//	System.out.println("Response Message:   "+response+"payload:   " +request);
 						   System.out.println("create patient   "+response.asPrettyString());
@@ -300,7 +302,7 @@ public class Patient_Put
 								//"patientId": 246,
 								
 								//Put_URL = Base_URL + "/updateuser/{userId}";
-								.get("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/patient/{patientId}");
+								.get(Routes.baseUri+Routes.updatepatientEndpoint+"{patientId}");
 						 System.out.println("Response Body: " + response.getBody().asString());
 					//	System.out.println("Response Message:   "+response+"payload:   " +request);
 						   System.out.println("create patient   "+response.asPrettyString());
@@ -355,7 +357,7 @@ public class Patient_Put
 								//"patientId": 246,
 								
 								//Put_URL = Base_URL + "/updateuser/{userId}";
-								.put("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/invalidendpoint/{patientId}");
+								.put(Routes.baseUri+Routes.invalidEndpont+"{patientId}");
 						 System.out.println("Response Body: " + response.getBody().asString());
 					//	System.out.println("Response Message:   "+response+"payload:   " +request);
 						   System.out.println("create patient   "+response.asPrettyString());
@@ -406,7 +408,8 @@ public class Patient_Put
 						response= given() 
 								//.baseUri(baseURI)
 								//  .header("Content-Type", "application/json")
-								.header("Authorization", "Bearer " + Routes.dieticianToken , "application/invalid_content_type")
+								//.contentType("applicationshfjk/invalidContentType")
+								.header("Authorization", "Bearer " + Routes.dieticianToken,"text/plain")
 								.pathParam("patientId","246")
 								.when()
 								.multiPart("patientInfo", resquest)
@@ -415,7 +418,7 @@ public class Patient_Put
 								//"patientId": 246,
 								
 								//Put_URL = Base_URL + "/updateuser/{userId}";
-								.put("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/invalidendpoint/{patientId}");
+								.put(Routes.baseUri+Routes.invalidEndpont+"{patientId}");
 						 System.out.println("Response Body: " + response.getBody().asString());
 					//	System.out.println("Response Message:   "+response+"payload:   " +request);
 						   System.out.println("create patient   "+response.asPrettyString());

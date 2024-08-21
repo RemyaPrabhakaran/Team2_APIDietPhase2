@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>3/0/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>1/3/0</td>
 </tr><tr>
-<td>Started on:</td><td>Mon Aug 19 18:25:12 IST 2024</td>
+<td>Started on:</td><td>Wed Aug 21 17:46:17 IST 2024</td>
 </tr>
-<tr><td>Total time:</td><td>71 seconds (71572 ms)</td>
+<tr><td>Total time:</td><td>14 seconds (14895 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -67,6 +67,87 @@ function toggleAllBoxes() {
 </tr>
 </table><p/>
 <small><i>(Hover the method name to see the test class name)</i></small><p/>
+<table width='100%' border='1' class='invocation-failed'>
+<tr><td colspan='4' align='center'><b>FAILED TESTS</b></td></tr>
+<tr><td><b>Test method</b></td>
+<td><b>Attribute(s)</b></td>
+<td width="30%"><b>Exception</b></td>
+<td width="10%"><b>Time (seconds)</b></td>
+<td><b>Instance</b></td>
+</tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin is able to retrieve patients morbidity details by patient ID", "Set Admin bearer"</td>
+<td><div><pre>java.lang.AssertionError: expected [403] but found [405]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1449)
+	at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+	at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:34)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1133251247", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1133251247'><pre>java.lang.AssertionError: expected [403] but found [405]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1449)
+	at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+	at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:34)
+</pre></div></td>
+<td>1</td>
+<td>testRunner.TestRunner@5aebe890</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to add new reports for existing patient with valid data and admin token", "Set Admin bearer"</td>
+<td><div><pre>java.lang.AssertionError: expected [403] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1449)
+	at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+	at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:18)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1453962850", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1453962850'><pre>java.lang.AssertionError: expected [403] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1449)
+	at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+	at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:18)
+</pre></div></td>
+<td>1</td>
+<td>testRunner.TestRunner@5aebe890</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to update patient with valid data and admin token", "Set Admin bearer"</td>
+<td><div><pre>java.lang.AssertionError: expected [403] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1449)
+	at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+	at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:13)
+</pre></div><a href='#' onClick='toggleBox("stack-trace390560699", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace390560699'><pre>java.lang.AssertionError: expected [403] but found [400]
+	at org.testng.Assert.fail(Assert.java:111)
+	at org.testng.Assert.failNotEquals(Assert.java:1578)
+	at org.testng.Assert.assertEqualsImpl(Assert.java:150)
+	at org.testng.Assert.assertEquals(Assert.java:132)
+	at org.testng.Assert.assertEquals(Assert.java:1419)
+	at org.testng.Assert.assertEquals(Assert.java:1449)
+	at stepDefinition.SetAdminToken_Steps_NegtaiveScenario.admin_recieves_forbidden(SetAdminToken_Steps_NegtaiveScenario.java:43)
+	at ✽.Admin recieves 403 forbidden(file:///C:/Users/mayan/git/Team2_APIRestAssured/Team2_APIDietPhase2/src/test/resources/Features/setAdminBearer.feature:13)
+</pre></div></td>
+<td>5</td>
+<td>testRunner.TestRunner@5aebe890</td></tr>
+</table><p>
 <table width='100%' border='1' class='invocation-passed'>
 <tr><td colspan='4' align='center'><b>PASSED TESTS</b></td></tr>
 <tr><td><b>Test method</b></td>
@@ -76,20 +157,10 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve all patients", "Get Operation [Get all Patients]"</td>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to create patient with valid data and admin token", "Set Admin bearer"</td>
 <td></td>
-<td>14</td>
-<td>testRunner.TestRunner@4dc27487</td></tr>
-<tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve all patient with invalid endpoint", "Get Operation [Get all Patients]"</td>
-<td></td>
-<td>27</td>
-<td>testRunner.TestRunner@4dc27487</td></tr>
-<tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve all patient with invalid method", "Get Operation [Get all Patients]"</td>
-<td></td>
-<td>28</td>
-<td>testRunner.TestRunner@4dc27487</td></tr>
+<td>6</td>
+<td>testRunner.TestRunner@5aebe890</td></tr>
 </table><p>
 </body>
 </html>

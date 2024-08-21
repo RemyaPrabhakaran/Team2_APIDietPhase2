@@ -24,32 +24,7 @@ public class PatientPut_Operation_Steps
 	//dietician login i will get one more bearer token
 	// with bearer token will perform put operation(before that i need to create one patient)
 
-	
-	
-//	create dietician   {
-//	    "id": 235,
-//	    "loginPassword": "Viper33",
-//	    "Firstname": "shan",
-//	    "Lastname": "sharma",
-//	    "ContactNumber": "1234567890",
-//	    "DateOfBirth": "2001-09-11T00:00:00.000+00:00",
-//	    "Email": "sanuu.u@gmail.com",
-//	    "HospitalName": "baptist",
-//	    "HospitalStreet": "cordova",
-//	    "HospitalCity": "dallas",
-//	    "HospitalPincode": "123456",
-//	    "Education": "MCA"
-//	}
-//	--------------   {"password":"Viper33","userLoginEmail":"sanuu.u@gmail.com"}
-//	login dietician   {
-//	    "token": "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzYW51dS51QGdtYWlsLmNvbSIsImlhdCI6MTcyMzgwNTEzMSwiZXhwIjoxNzIzODMzOTMxfQ.8L-QFSSV0JTFzvakiuGoStoHhvFdqXn7eiAHfwnADiZtlyj4kMeZ-TGoisNjQFYD-hYuf8wODvrwdpqjq50q5A",
-//	    "type": "Bearer ",
-//	    "userId": 337,
-//	    "loginUserEmail": "sanuu.u@gmail.com",
-//	    "roles": [
-//	        "ROLE_DIETICIAN"
-//	    ]
-//	}
+	Patient_Put p_put=new Patient_Put();
 	
 
 	
@@ -103,7 +78,7 @@ public class PatientPut_Operation_Steps
 	{
 		Patient_Put p_put=new Patient_Put();
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
 						
 		
 						
@@ -133,7 +108,7 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 		
 		Patient_Put p_put=new Patient_Put();
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_WithMandatoryFields","updateMandotoryfield");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_WithMandatoryFields","updateMandotoryfield");
 						
 		
 						
@@ -174,7 +149,7 @@ response=	p_put.updatePatientWithInvalid_PatientID(data);
 	{
 		Patient_Put p_put=new Patient_Put();
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "emptyMandatoryFields","emptyFields");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "emptyMandatoryFields","emptyFields");
 						
 		
 						
@@ -200,7 +175,7 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 	{
 		Patient_Put p_put=new Patient_Put();
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "invaliddata","invalid_data");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "invaliddata","invalid_data");
 						
 		
 						
@@ -224,9 +199,9 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 	@When("Dietician send PUT http request by not attaching any file into the form-data with endpoint")
 	public void dietician_send_put_http_request_by_not_attaching_any_file_into_the_form_data_with_endpoint() 
 	{
-		Patient_Put p_put=new Patient_Put();
+		
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
 									
 		
 						
@@ -243,9 +218,9 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 	@When("Dietician send POST http request with valid data and invalid method with endpoint")
 	public void dietician_send_post_http_request_with_valid_data_and_invalid_method_with_endpoint() 
 	{
-		Patient_Put p_put=new Patient_Put();
+		
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
 									
 		
 						
@@ -269,9 +244,9 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 	@When("Dietician sent PUT http request with invalid endpoint")
 	public void dietician_sent_put_http_request_with_invalid_endpoint() 
 	{
-		Patient_Put p_put=new Patient_Put();
+		
 		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
 									
 		
 						
@@ -288,9 +263,8 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 	
 	@When("Dietician send PUT http request valid data, patient id and invalid content type with endpoint")
 	public void dietician_send_put_http_request_valid_data_patient_id_and_invalid_content_type_with_endpoint() {
-		Patient_Put p_put=new Patient_Put();
-		List<Map<String, String>> testData = 
-ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Team2_APIDietPhase2\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx", "update_Patient","update");
+	List<Map<String, String>> testData = 
+ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"\\src\\test\\resources\\Data\\Team2_APIDiet_Data .xlsx","update_Patient","update");
 									
 		
 						
@@ -303,7 +277,7 @@ ExcelUtilities.getTestDataInMap("C:\\Users\\mayan\\git\\Team2_APIRestAssured\\Te
 	@Then("Dietician recieves {int} unsupported media type")
 	public void dietician_recieves_unsupported_media_type(Integer statuscode) 
 	{
-		//assertEquals(response.getStatusCode(), statuscode);
-		//System.out.println("status code "+response.getStatusCode() ); 
+		assertEquals(response.getStatusCode(), statuscode);
+		System.out.println("status code "+response.getStatusCode() ); 
 	}
 }

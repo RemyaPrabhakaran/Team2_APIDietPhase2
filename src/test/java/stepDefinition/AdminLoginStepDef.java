@@ -1,25 +1,31 @@
 package stepDefinition;
 
-import java.io.PrintStream;
-
 import org.testng.Assert;
 
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
-import io.restassured.filter.log.RequestLoggingFilter;
-import io.restassured.filter.log.ResponseLoggingFilter;
 import io.restassured.response.Response;
 import requestBody.Post_Login;
+import testContext.TestContext;
+import utilities.ReqResSpec;
+import utilities.ResourceBundleReader;
 
 public class AdminLoginStepDef {
 	
 	Post_Login postLogin = new Post_Login();
 	  Response response;
-	 
+	  TestContext testContext =new TestContext();
+	  ReqResSpec reqres;
+	  ResourceBundleReader resource;
 	   
-		
+	  public AdminLoginStepDef(TestContext testcontext) {
+		  this.testContext = testcontext;
+		  reqres = testcontext.getReqResSpec();
+		  resource = testcontext.getResourceBundleReader();
+		  
+	  }
 
 @Given("Admin sets the Authorization to no auth")
 public void admin_sets_the_authorization_to_no_auth() {

@@ -17,7 +17,11 @@ public class Post_Login {
 	 Response response;
 	public String UserLoginPost() throws Exception {
 		List<Map<String, String>> testData;
-		testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
+		testData = ExcelUtilities.getTestDataInMap(System.getProperty("user.dir")+"/src/test/resources/Data/Team2_APIDiet_Data .xlsx", "Sheet1", "UserLoginPost");
+		
+		//String testData = System.getProperty("user.dir")+"/src/test/resources/Data/Team2_APIDiet_Data .xlsx";
+		
+		
 		String reqBody = null;
 		for (Map<String, String> data : testData) {
            
