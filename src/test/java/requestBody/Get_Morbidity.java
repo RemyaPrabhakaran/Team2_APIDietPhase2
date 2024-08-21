@@ -11,7 +11,7 @@ public class Get_Morbidity {
 	public static GetallMorbidities.Request request;
 	public static GetallMorbidities.Request GetMobidityRequestBody(String sheet, int rowNo) throws Exception {
 		List<Map<String, String>> testData;
-		testData = ExcelUtilities.getTestDataInMap("C:\\Users\\kundu\\Documents\\Testdatafiles\\Team2_APIDiet_Data.xlsx", sheet, "getMorbidity");
+		testData = ExcelUtilities.getTestDataInMap("src/test/resources/Data/Team2_APIDiet_Data.xlsx", sheet, "getMorbidity");
 		System.out.println("Test Data: " + testData);
 		System.out.println("row: " + rowNo);
 		Map<String, String> rowData = testData.get(rowNo);
@@ -39,7 +39,7 @@ public class Get_Morbidity {
 	
 	public static String getStatusCode(String sheet, Integer row) {
 		List<Map<String, String>> testData;
-		testData = ExcelUtilities.getTestDataInMap("C:\\Users\\kundu\\Documents\\Testdatafiles\\Team2_APIDiet_Data.xlsx", sheet, "getMorbidity");
+		testData = ExcelUtilities.getTestDataInMap("src/test/resources/Data/Team2_APIDiet_Data.xlsx", sheet, "getMorbidity");
 		System.out.println("Test Data: " + testData);
 		System.out.println("row: " + row);
 		Map<String, String> rowData = testData.get(row);

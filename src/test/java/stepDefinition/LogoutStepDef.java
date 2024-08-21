@@ -20,8 +20,10 @@ public class LogoutStepDef {
 	@When("User sends a GET request to fetch logout details  with {string} {string} {int}")
 	public void user_sends_a_get_request_to_fetch_logout_details_with(String scenario, String sheet, Integer row)
 			throws Exception {
-		request = Get_Logout.Get_LogoutRequestBody(sheet, row);
+		
 
+		request = Get_Logout.Get_LogoutRequestBody(sheet, row);
+		
 		RequestSpecification requestSpec = RestAssured.given();
 
 		if (request.getToken() != null) {
@@ -39,9 +41,12 @@ public class LogoutStepDef {
 
 	@Then("the response status code should be  with {string} {int}")
 	public void the_response_status_code_should_be_with(String sheet, Integer row) {
-		String status_code = Get_Logout.getStatusCode(sheet, row);
-		assertEquals(Integer.parseInt(status_code), response.getStatusCode());
 		
+		String status_code = Get_Logout.getStatusCode(sheet, row);
+		
+		System.out.println("Expected Code: " + status_code);
+		System.out.println("Received Code: " + response.getStatusCode());
+		assertEquals(Integer.parseInt(status_code), response.getStatusCode());
 		if (response.getStatusCode() == 200) {
 			String message = response.body().asString();
 			if (message.contains("Logout successful")) {

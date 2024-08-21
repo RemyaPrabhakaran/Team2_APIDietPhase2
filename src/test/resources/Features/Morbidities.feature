@@ -11,7 +11,7 @@ Feature: Get all morbidities
   
   @tag2
   Scenario Outline: User able to retrive all morbidities with token
-    When User create and send request using "<request_type" "<sheet>" <row>
+    When User create and send request using "<request_type>" "<sheet>" <row>
     Then Admin receives invalid Status Code with "<sheet>" <row>
 
     Examples: 

@@ -50,6 +50,9 @@ public class GetallMorbiditiesStepdef {
 	@Then("Admin receives invalid Status Code with {string} {int}")
 	public void admin_receives_invalid_status_code_with(String sheet, Integer row) {
 		String status_code = Get_Morbidity.getStatusCode(sheet, row);
+		System.out.println("Expected Code: " + status_code);
+		System.out.println("Received Code: " + response.getStatusCode());
+		
 	    assertEquals(Integer.parseInt(status_code), response.getStatusCode());
 	    
 	    /* Validations */
@@ -102,6 +105,7 @@ public class GetallMorbiditiesStepdef {
 	@When("User create and send request using {string} {string} {int}")
 	public void user_create_and_send_request_using(String scenario, String sheet, Integer row) throws Exception {
 		request = Get_Morbidity.GetMobidityRequestBody(sheet, row);
+		System.out.println("Scenario: " + scenario);
 		if (scenario.contains("post request")) {
 			response = RestAssured.given()
 		 			  .baseUri(request.getBaseUrl())

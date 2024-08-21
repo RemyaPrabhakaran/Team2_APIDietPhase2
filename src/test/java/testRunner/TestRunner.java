@@ -4,6 +4,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
 		features = {"src/test/resources/Features/A_User_Admin.feature", "src/test/resources/Features/Morbidities.feature", "src/test/resources/Features/Userlogout.feature"},
+		
         glue = {"stepDefinition"},
         		   plugin = {"pretty","html:HtmlReport/report.html",
         		    		"json:JSONReport/report.json",

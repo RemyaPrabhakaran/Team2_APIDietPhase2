@@ -46,6 +46,7 @@ public class AdminLoginStepDef {
 	    String status_code = Post_Login.getStatusCode(sheet, row);
 	    assertEquals(Integer.parseInt(status_code), response.getStatusCode());
 	    System.out.println("status: " + response.getStatusCode());
+	    System.out.println("expected status: " + status_code);
 	    if (string.contentEquals("Valid Credentials") ||
 	    	(string.contentEquals("Valid Dietician Credentials")) ||
 	    	(string.contentEquals("Valid Patient Credentials"))) {
