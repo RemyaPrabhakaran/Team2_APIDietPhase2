@@ -13,7 +13,7 @@ public enum APIResources {
 	MorbidityEndpoint("/morbidity"),
 	
 	patientInvalidEndpoint("/ptient"),
-	newReportsInvalidEndpoint("/ptient/newReports/{patientId}"),
+	newReportsInvalidEndpoint("/ptient/newReports/"),
 	DeletePatientInvalidEndpoint("/ptient/{patientId}"),
 	patientMorbiditiesInvalidEndpoint("/ptient/testReports/{patientId}"),
 	RetrievePatientFileInvalidEndpoint("/ptient/testReports/viewFile/{fileId}");

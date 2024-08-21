@@ -55,11 +55,11 @@ function toggleAllBoxes() {
 <body>
 <h2 align='center'>Default test</h2><table border='1' align="center">
 <tr>
-<td>Tests passed/Failed/Skipped:</td><td>10/1/0</td>
+<td>Tests passed/Failed/Skipped:</td><td>37/1/0</td>
 </tr><tr>
-<td>Started on:</td><td>Wed Aug 21 12:48:46 EDT 2024</td>
+<td>Started on:</td><td>Wed Aug 21 17:44:48 EDT 2024</td>
 </tr>
-<tr><td>Total time:</td><td>14 seconds (14858 ms)</td>
+<tr><td>Total time:</td><td>17 seconds (17841 ms)</td>
 </tr><tr>
 <td>Included groups:</td><td></td>
 </tr><tr>
@@ -75,9 +75,9 @@ function toggleAllBoxes() {
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update of patient with  nofile", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
 <td><div><pre>java.lang.AssertionError: 1 expectation failed.
-Expected status code &lt;201&gt; but was &lt;400&gt;.
+Expected status code &lt;200&gt; but was &lt;400&gt;.
 
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
@@ -93,8 +93,7 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
 	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor139.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
@@ -105,11 +104,11 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at stepDefinition.PatientPostStepDef.dietician_recieves_response_for_the_respective(PatientPostStepDef.java:115)
-	at ✽.Dietician recieves response for the respective &quot;ValidTwo&quot;(file:///C:/Users/rashm/git/Team2_APIDietPhase2RestAssured/src/test/resources/Features/001_Patient.feature:13)
-</pre></div><a href='#' onClick='toggleBox("stack-trace1579897131", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
-<div class='stack-trace' id='stack-trace1579897131'><pre>java.lang.AssertionError: 1 expectation failed.
-Expected status code &lt;201&gt; but was &lt;400&gt;.
+	at stepDefinition.PatientPutAddNewReports.dietician_recieves_statuscode_for_add_new_reports_with_without_vitals(PatientPutAddNewReports.java:145)
+	at ✽.Dietician recieves 400 statuscode for Add New Reports with or without Vitals(file:///C:/Users/rashm/git/Team2_APIDietPhase2RestAssured/src/test/resources/Features/002_PatientPutAddNewReports.feature:42)
+</pre></div><a href='#' onClick='toggleBox("stack-trace1439452257", this, "Click to show all stack frames", "Click to hide stack frames")'>Click to show all stack frames</a>
+<div class='stack-trace' id='stack-trace1439452257'><pre>java.lang.AssertionError: 1 expectation failed.
+Expected status code &lt;200&gt; but was &lt;400&gt;.
 
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance0(Native Method)
 	at java.base/jdk.internal.reflect.NativeConstructorAccessorImpl.newInstance(NativeConstructorAccessorImpl.java:77)
@@ -125,8 +124,7 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 	at io.restassured.internal.ResponseSpecificationImpl$HamcrestAssertionClosure$validate$1.call(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.validateResponseIfRequired(ResponseSpecificationImpl.groovy:696)
 	at io.restassured.internal.ResponseSpecificationImpl.this$2$validateResponseIfRequired(ResponseSpecificationImpl.groovy)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:77)
+	at jdk.internal.reflect.GeneratedMethodAccessor139.invoke(Unknown Source)
 	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
 	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
 	at org.codehaus.groovy.runtime.callsite.PlainObjectMetaMethodSite.doInvoke(PlainObjectMetaMethodSite.java:43)
@@ -137,8 +135,8 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 	at io.restassured.specification.ResponseSpecification$statusCode$0.callCurrent(Unknown Source)
 	at io.restassured.internal.ResponseSpecificationImpl.statusCode(ResponseSpecificationImpl.groovy:143)
 	at io.restassured.internal.ValidatableResponseOptionsImpl.statusCode(ValidatableResponseOptionsImpl.java:89)
-	at stepDefinition.PatientPostStepDef.dietician_recieves_response_for_the_respective(PatientPostStepDef.java:115)
-	at ✽.Dietician recieves response for the respective &quot;ValidTwo&quot;(file:///C:/Users/rashm/git/Team2_APIDietPhase2RestAssured/src/test/resources/Features/001_Patient.feature:13)
+	at stepDefinition.PatientPutAddNewReports.dietician_recieves_statuscode_for_add_new_reports_with_without_vitals(PatientPutAddNewReports.java:145)
+	at ✽.Dietician recieves 400 statuscode for Add New Reports with or without Vitals(file:///C:/Users/rashm/git/Team2_APIDietPhase2RestAssured/src/test/resources/Features/002_PatientPutAddNewReports.feature:42)
 </pre></div></td>
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>
@@ -151,7 +149,27 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 <td><b>Instance</b></td>
 </tr>
 <tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients morbidity details by patient id", "Get Operation [Get Patients Morbidity Details ]"</td>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to delete patient by invalid id", "Get Operation [Get Patients Morbidity Details ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update of patient with invalid method", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients by field", "Get Operation [Retrieve Patient file by FileId ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Creation of patient with invalid method", "Post Operation [create patient]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to delete patient by id with invalid endpoint", "Get Operation [Get Patients Morbidity Details ]"</td>
 <td></td>
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>
@@ -161,22 +179,7 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>
 <tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update patient Add New Reports with/without Vitals for existing Patient", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
-<td></td>
-<td>0</td>
-<td>testRunner.TestRunner@37afeb11</td></tr>
-<tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
-<td></td>
-<td>6</td>
-<td>testRunner.TestRunner@37afeb11</td></tr>
-<tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update patient Add New Reports with/without Vitals for existing Patient", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
-<td></td>
-<td>0</td>
-<td>testRunner.TestRunner@37afeb11</td></tr>
-<tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients by field with invalid endpoint", "Get Operation [Retrieve Patient file by FileId ]"</td>
 <td></td>
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>
@@ -191,12 +194,142 @@ Expected status code &lt;201&gt; but was &lt;400&gt;.
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>
 <tr>
-<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients by field", "Get Operation [Retrieve Patient file by FileId ]"</td>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to add new reports for existing patient with valid data", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to add new reports for existing patient with valid data", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
 <td></td>
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>
 <tr>
 <td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
+<td></td>
+<td>4</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to delete patient by ID", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update of patient with  nofile", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update patient Add New Reports with/without Vitals for existing Patient", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients morbidity details by invalid patient ID", "Get Operation [Get Patients Morbidity Details ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients by field with invalid method", "Get Operation [Retrieve Patient file by FileId ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to retrieve patients by field", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients morbidity details by patient ID with invalid method", "Get Operation [Get Patients Morbidity Details ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update patient Add New Reports with/without Vitals for existing Patient", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients morbidity details by patient ID", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Creation of patient with invalid content type", "Post Operation [create patient]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update of patient with invalid endpoint", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Patient creation", "Post Operation [create patient]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Update of patient with invalid content type", "Put Operation [Add New Reports with/without Vitals for existing Patient"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Creation of patient with invalid endpoint", "Post Operation [create patient]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to retrieve patients morbidity details by patient ID", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients by invalid field", "Get Operation [Retrieve Patient file by FileId ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to create patient with valid data", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check admin able to create patient with valid data", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients by field", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to delete patient by ID", "Patient Post, Patient put add new reports, Get morbidity details, Get retrievePatient, delete"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients morbidity details by patient id", "Get Operation [Get Patients Morbidity Details ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to delete patient by id with invalid method", "Get Operation [Get Patients Morbidity Details ]"</td>
+<td></td>
+<td>0</td>
+<td>testRunner.TestRunner@37afeb11</td></tr>
+<tr>
+<td title='testRunner.TestRunner.runScenario()'><b>runScenario</b><br>Test class: testRunner.TestRunner<br>Test method: Runs Cucumber Scenarios<br>Parameters: "Check dietician able to retrieve patients morbidity details by patient ID with invalid endpoint", "Get Operation [Get Patients Morbidity Details ]"</td>
 <td></td>
 <td>0</td>
 <td>testRunner.TestRunner@37afeb11</td></tr>

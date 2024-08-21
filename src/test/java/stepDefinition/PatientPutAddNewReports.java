@@ -34,7 +34,7 @@ public class PatientPutAddNewReports {
 	  Response response;
 	  Put_PatientAddNewReport pReport;
 	  
-		  String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyMzc5MTQsImV4cCI6MTcyNDI2NjcxNH0.yBl-_DAjNgbSXM8UgGMwTeTAp0CiIuiK3DR1AwD6TDedb2__hX8uA1iWK3Dtu62G4pHgC_ZvmFNF-9KfhWBw6Q";
+		  String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyNjY4NDcsImV4cCI6MTcyNDI5NTY0N30.SzEGGUC99E8nZKMyqrj9cBgx36tthxbaY3gtaLpttKeDgnnBMHpH3Rd4nYH8kXyE50mmlh6EbQ_NZ6tC60oANw";
 		  
 		
 		 /* ResourceBundleReader reader = new ResourceBundleReader();

@@ -1,3 +1,4 @@
+@tag @patient
 Feature: Get Operation [Get Patients Morbidity Details ]
 
 Background: 

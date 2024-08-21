@@ -1,5 +1,5 @@
 
-
+@tag @patient
 
 Feature: Post Operation [create patient]
 

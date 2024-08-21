@@ -22,7 +22,7 @@ import utilities.ReqResSpec;
 import utilities.ResourceBundleReader;
 
 public class NoAuthStepDef extends  ReqResSpec{
-	RequestSpecification request;
+	RequestSpecification request1;
 	RequestSpecification res;
 	 Response response;
 	
@@ -42,6 +42,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	  APIResources resourceApiGet = APIResources.patientMorbiditiesEndpoint;
 	  APIResources resourceApiGetFile = APIResources.RetrievePatientFileEndpoint;
 	  APIResources resourceApiDelete = APIResources.DeletePatientEndpoint;
+	  APIResources resourceApiPost = APIResources.patientEndpoint;
 	  String putendpoint = resourceApiPut.getResource() + PatientPostStepDef.patientIDs.get(0);
 	    String GetIDendpoint = resourceApiGet.getResource();
 	    String getfileIDendpoint=resourceApiGetFile.getResource();
@@ -63,7 +64,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	  
 	@Given("Set no auth")
 	public void set_no_auth() throws FileNotFoundException {
-		 request= RestAssured
+		 request1= RestAssured
 				    .given()
 				    	.spec(ReqSpec());
 	   
@@ -81,7 +82,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 			exp_status_code = Integer.parseInt(data.get("StatusCode"));
 			String filePath =resource.getPDFFile1();
 			  File file = new File(filePath);
-			res = request
+			res = request1
 		                .multiPart("patientInfo", body)
 		                .multiPart("file", file, "application/pdf");
 		}
@@ -118,7 +119,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	public void dietician_send_post_http_request_with_endpoint_no_auth() {
 		 response = res
                  .when()
-                 .post(Post_Patient.endpoint)
+                 .post(resourceApiPost.getResource())
                  .then()
                  .log().all()
                  .extract()
@@ -130,7 +131,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	public void dietician_send_put_http_request_with_endpoint_no_auth() {
 		String filePath =resource.getPDFFile1();
 		  File file = new File(filePath);
-		res=	 request.contentType("multipart/form-data").multiPart("patientInfo", body, "application/json")
+		res=	 request1.contentType("multipart/form-data").multiPart("patientInfo", body, "application/json")
 			      
 		        .multiPart("file", file, "application/json")
 		        .multiPart("vitals", body1, "application/json");
@@ -150,7 +151,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	public void dietician_create_get_request_no_auth() {
 	    
 		
-		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
+		res=request1.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
 		
 		
 	}
@@ -181,7 +182,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	}
 	@Given("Dietician create GET request no auth by fileId")
 	public void dietician_create_get_request_no_auth_by_file_id() {
-		res=PatientPostStepDef.request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
+		res=request1.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
 		
 	}
 
@@ -200,7 +201,7 @@ public class NoAuthStepDef extends  ReqResSpec{
 	@Given("Dietician create DELETE request for no auth")
 	public void dietician_create_delete_request_for_no_auth() {
 	   
-		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0)); 
+		res=request1.pathParam("patientId",PatientPostStepDef.patientIDs.get(0)); 
 		
 	}
 

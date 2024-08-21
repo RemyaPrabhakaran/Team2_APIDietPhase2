@@ -23,7 +23,7 @@ import utilities.ResourceBundleReader;
 
 public class AminTokenStepDef extends ReqResSpec {
 
-	String adminToken="";
+	String adminToken="eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtMTAuYWRtaW5AZ21haWwuY29tIiwiaWF0IjoxNzI0MjcyMDE5LCJleHAiOjE3MjQzMDA4MTl9.kaWohIDPAMypk3pE2Z1z1olxMJ8saTh3HLPew9cd2GCe9QiplPkHBSFKgrXrGIX2S5fBQHbEESfOIP4-yU4BPw";
 	RequestSpecification request;
 	RequestSpecification res;
 	 Response response;
@@ -31,6 +31,7 @@ public class AminTokenStepDef extends ReqResSpec {
 	  APIResources resourceApiGet = APIResources.patientMorbiditiesEndpoint;
 	  APIResources resourceApiGetFile = APIResources.RetrievePatientFileEndpoint;
 	  APIResources resourceApiDelete = APIResources.DeletePatientEndpoint;
+	  APIResources resourceApiPost = APIResources.patientEndpoint;
 	  String putendpoint = resourceApiPut.getResource() + PatientPostStepDef.patientIDs.get(0);
 	    String GetIDendpoint = resourceApiGet.getResource();
 	    String getfileIDendpoint=resourceApiGetFile.getResource();
@@ -92,7 +93,7 @@ public class AminTokenStepDef extends ReqResSpec {
 		
 		response = res
                 .when()
-                .post(Post_Patient.endpoint)
+                .post(resourceApiPost.getResource())
                 .then()
                 .log().all()
                 .extract()
@@ -154,7 +155,7 @@ public class AminTokenStepDef extends ReqResSpec {
 	@Given("Admin creates GET request")
 	public void admin_creates_get_request() {
 	    
-		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
+		res=request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
 	}
 
 	@When("Admin send GET http request with endpoint")
@@ -172,7 +173,7 @@ public class AminTokenStepDef extends ReqResSpec {
 	@Given("Admin create GET request by fileId")
 	public void admin_create_get_request_no_auth_by_file_id() {
 	   
-		res=PatientPostStepDef.request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
+		res=request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
 		
 		
 	}
@@ -192,7 +193,7 @@ public class AminTokenStepDef extends ReqResSpec {
 
 	@Given("Admin create DELETE request")
 	public void admin_create_delete_request() {
-		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0)); 
+		res=request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0)); 
 		
 	}
 
@@ -200,7 +201,7 @@ public class AminTokenStepDef extends ReqResSpec {
 	public void admin_send_delete_http_request_with_endpoint() {
 		response = res
                 .when()
-                .get(getfileIDendpoint)
+                .get(GetIDendpoint)
                 .then()
                 .log().all()
                 .extract()

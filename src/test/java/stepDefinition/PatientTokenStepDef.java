@@ -23,7 +23,7 @@ import utilities.ResourceBundleReader;
 
 public class PatientTokenStepDef extends ReqResSpec {
 	
-	String patientToken="";
+	String patientToken="568ghjkkk89000gjkkkkkk";
 	RequestSpecification request;
 	RequestSpecification res;
 	 Response response;
@@ -37,6 +37,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	    String GetIDendpoint = resourceApiGet.getResource();
 	    String getfileIDendpoint=resourceApiGetFile.getResource();
 	    String deleteendpoint=resourceApiDelete.getResource();
+	    APIResources resourceApiPost = APIResources.patientEndpoint;
 	
 	  TestContext testContext;
 	  ReqResSpec reqres;
@@ -91,7 +92,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	public void patient_sends_post_http_request_with_endpoint() {
 		response = res
                 .when()
-                .post(Post_Patient.endpoint)
+                .post(resourceApiPost.getResource())
                 .then()
                 .log().all()
                 .extract()
@@ -99,7 +100,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	   
 	}
 
-	@Then("Patient recieves {int} unauthorized")
+	@Then("Patient recieves {int}")
 	public void patient_recieves_unauthorized(int int1) {
 	   
 		Assert.assertEquals(response.statusCode(), int1);
@@ -146,14 +147,14 @@ public class PatientTokenStepDef extends ReqResSpec {
 	   
 	}
 
-	@Then("Paitent recieves {int} unauthorized")
+	@Then("Paitent recieves {int}")
 	public void paitent_recieves_unauthorized(int int1) {
 		Assert.assertEquals(response.statusCode(), int1);
 	}
 
 	@Given("Patient create GET request")
 	public void patient_create_get_request() {
-		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
+		res=request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0));
 	    
 	}
 
@@ -170,7 +171,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 
 	@Given("Patient creates GET request no auth by fileId")
 	public void patient_creates_get_request_no_auth_by_file_id() {
-		res=PatientPostStepDef.request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
+		res=request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
 	}
 
 	@When("Patient send GET http request with endpoint for fileID")
@@ -188,7 +189,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	@Given("Patient create DELETE request")
 	public void patient_create_delete_request() {
 		
-		res=PatientPostStepDef.request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0)); 
+		res=request.pathParam("patientId",PatientPostStepDef.patientIDs.get(0)); 
 	    
 	}
 
@@ -196,7 +197,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	public void patient_send_delete_http_request_with_endpoint() {
 		response = res
                 .when()
-                .get(getfileIDendpoint)
+                .get(GetIDendpoint)
                 .then()
                 .log().all()
                 .extract()
