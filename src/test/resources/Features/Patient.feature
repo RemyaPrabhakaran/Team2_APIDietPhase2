@@ -20,6 +20,20 @@ Feature: Post Operation [create patient]
       | InvalidData       | PatientPost |
       | InvalidAdditional | PatientPost |
       | Duplicate         | PatientPost |
-      #| InvalidMethod          | PatientPost  |     
-      #| InvalidEndPoint        | PatientPost  |     
-      #|InvalidContent          | PatientPost  |
+     
+
+      Scenario: Creation of patient with invalid method
+      Given Dietician creates POST request by entering  data for the "InvalidMethod" from the "PatientPost"
+      When Dietician send  http request with endpoint and invalid method
+      Then Dietician recieves 405 statuscode
+      
+       Scenario: Creation of patient with invalid endpoint
+      Given Dietician creates POST request by entering  data for the "InvalidEndPoint" from the "PatientPost"
+      When Dietician send  http request with endpoint and invalid endpoint
+      Then Dietician recieves 404 statuscode
+      
+      Scenario: Creation of patient with invalid content type
+       Given Dietician creates POST request by entering  data for the "InvalidContent" from the "PatientPost"
+      When Dietician send  http request with endpoint and invalid content type
+      Then Dietician recieves 415 statuscode
+      

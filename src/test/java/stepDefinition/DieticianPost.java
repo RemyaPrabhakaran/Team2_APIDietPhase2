@@ -69,8 +69,8 @@ public class DieticianPost extends ReqResSpec {
 	}
 		}
 
-	@When("Admin send POST http request with endpoint")
-	public void admin_send_post_http_request_with_endpoint() {
+	@When("Admin sends POST http request with endpoint")
+	public void admin_sends_post_http_request_with_endpoint() {
 		
 	  response= res.when().post("/dietician").then()
     	

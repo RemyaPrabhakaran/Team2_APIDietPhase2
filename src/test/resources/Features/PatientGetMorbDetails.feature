@@ -25,4 +25,4 @@ Given Dietician create request for invalid patient ID
  
  Given Dietician create request 
     When Dietician send GET http request with invalid endpoint
-    Then Dietician recieves 404 code
+    Then Dietician recieves 405 code

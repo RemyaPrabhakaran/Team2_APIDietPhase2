@@ -1,13 +1,12 @@
 package payload;
 
-public class Patient_Post {
+public class Patient_Put_AddNewReports {
 	
-   
 	public String LastName;
     public long ContactNumber;
     public String Email;
     public String Allergy;
-    
+    public String FoodCategory;
     public String DateOfBirth;
 
 	public  String FirstName;
@@ -18,7 +17,7 @@ public class Patient_Post {
 
     
   
-    public Patient_Post(String firstName, String lastName, String contactNumber, String email, String allergy, String foodPreference, String dateOfBirth, String cuisineCategory
+    public Patient_Put_AddNewReports(String firstName, String lastName, String contactNumber, String email, String allergy, String foodPreference, String dateOfBirth, String cuisineCategory
 ) {
         this.FirstName = firstName;
         this.LastName = lastName;
@@ -33,3 +32,6 @@ public class Patient_Post {
     
 
 }
+
+
+

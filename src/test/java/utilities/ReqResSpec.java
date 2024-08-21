@@ -16,9 +16,10 @@ public class ReqResSpec {
 
 	 RequestSpecification request;
 	ResponseSpecification response;
-	 static String baseURI = "https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician";
+	 
 	int exp_status_code;
-	
+	ResourceBundleReader reader = new ResourceBundleReader();
+	 String baseURI = reader.getBaseURI();
 	public  RequestSpecification ReqSpec() throws FileNotFoundException {
 		PrintStream log  = new PrintStream(new FileOutputStream("log.txt"));
 		

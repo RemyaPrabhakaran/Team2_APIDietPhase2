@@ -13,28 +13,59 @@ public class PatientGetRetrievePatientFile extends ReqResSpec {
 	
 	 RequestSpecification res;
 	 Response response;
-	@Given("Dietician create GET request to retrieve patients by field")
+	String invalidEndpoint="/ptient/testReports/viewFile/{fileId}";
+	 String endpoint = "/patient/testReports/viewFile/{fileId}" ;
+	@Given("Dietician create requests to retrieve patients by field")
 	public void dietician_create_get_request_to_retrieve_patients_by_field() {
-		res=PatientPostStepDef.request.pathParam("fileId","66c13d5ce30dde112fb8ff51");
+		res=PatientPostStepDef.request.pathParam("fileId", PatientPostStepDef.patientFileIds.get(0));
 	}
 
 	@When("Dietician send GET http request with endpointto retrieve patients by field")
 	public void dietician_send_get_http_request_with_endpointto_retrieve_patients_by_field() {
 		 response = res
 	                .when()
-	                .get("/patient/testReports/viewFile/{fileId}")
+	                .get(endpoint)
 	                .then()
 	                .log().all()
 	                .extract()
 	                .response();
 	}
 
-	@Then("Dietician recieves {int} ok with details of the patient id")
-	public void dietician_recieves_ok_with_details_of_the_patient_id(int int1, io.cucumber.datatable.DataTable dataTable) {
+	@Then("Dietician recieves {int} for Retrieve Patient file by FileId")
+	public void dietician_recieves_ok_with_details_of_the_patient_id(int int1) {
 		Assert.assertEquals(response.statusCode(), int1);
 	}
 
 
+	@When("Dietician send  http request with invalid method")
+	public void dietician_send_http_request_with_invalid_method() {
+		 response = res
+	                .when()
+	                .post(endpoint)
+	                .then()
+	                .log().all()
+	                .extract()
+	                .response();
+		
+	}
 
+	@Given("Dietician create requests to retrieve patients by invalid field")
+	public void dietician_create_requests_to_retrieve_patients_by_invalid_field() {
+	 
+		res=PatientPostStepDef.request.pathParam("fileId",PatientPostStepDef.patientFileIds.get(0));
+
+	}
+
+	@When("Dietician send GET http request with invalid endpoint to retrive patient")
+	public void dietician_send_get_http_request_with_invalid_endpoint_to_retrive_patient() {
+	 
+		 response = res
+	                .when()
+	                .get(invalidEndpoint)
+	                .then()
+	                .log().all()
+	                .extract()
+	                .response();
+	}
 
 }

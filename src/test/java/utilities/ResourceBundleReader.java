@@ -62,4 +62,12 @@ public class ResourceBundleReader {
 		return getProperty("MorbidityEndpoint");
 	}
 
+	public String getPDFFile1() {
+		return getProperty("PDFFile1");
+	}
+	
+	public String getPDFFile2() {
+		return getProperty("PDFFile2");
+	}
+	
 }

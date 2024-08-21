@@ -1,0 +1,72 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Generated schema for Root",
+  "type": "array",
+  "items": {
+    "type": "object",
+    "properties": {
+      "fileId": {
+        "type": "string"
+      },
+      "fileName": {
+        "type": "string"
+      },
+      "uploadDate": {
+        "type": "string"
+      },
+      "morbidConditions": {
+        "type": "object",
+        "properties": {
+          "T4": {
+            "type": "string"
+          },
+          "TSH": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "T4",
+          "TSH"
+        ]
+      },
+      "vitals": {
+        "type": "object",
+        "properties": {
+          "Weight": {
+            "type": "number"
+          },
+          "Height": {
+            "type": "number"
+          },
+          "Temperature": {
+            "type": "number"
+          },
+          "SP": {
+            "type": "number"
+          },
+          "DP": {
+            "type": "number"
+          }
+        },
+        "required": [
+          "Weight",
+          "Height",
+          "Temperature",
+          "SP",
+          "DP"
+        ]
+      },
+      "morbidConditionStr": {
+        "type": "string"
+      }
+    },
+    "required": [
+      "fileId",
+      "fileName",
+      "uploadDate",
+      "morbidConditions",
+      "vitals",
+      "morbidConditionStr"
+    ]
+  }
+}
