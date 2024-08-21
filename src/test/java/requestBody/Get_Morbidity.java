@@ -19,9 +19,9 @@ public class Get_Morbidity {
         //Initialize class object and call constructor
 		request = new GetallMorbidities.Request();
 		System.out.println("Request after initialization: " + request);
-		request.setBaseUrl(rowData.get("BaseUrl"));
-	    request.setEndpoint(rowData.get("Endpoint"));
-	    request.setContentType(rowData.get("ContentType"));
+		//request.setBaseUrl(rowData.get("BaseUrl"));
+	    //request.setEndpoint(rowData.get("Endpoint"));
+	    //request.setContentType(rowData.get("ContentType"));
 	    if(rowData.get("token_type").contains("admin")) {
 	    	request.setToken(User_Login.adminBearerToken);
 	    	System.out.println("admin token:" + User_Login.adminBearerToken);
@@ -32,8 +32,17 @@ public class Get_Morbidity {
 	    	request.setToken(User_Login.patientBearerToken);
 	    	System.out.println("patient token:" + User_Login.patientBearerToken);
 	    }
+	    
+	    String invalidEndpoint = rowData.get("Invalid Endpoint");
+
+	    if (invalidEndpoint != null && !invalidEndpoint.isEmpty()) {
+	        request.setInvalidUrl(rowData.get("Invalid Endpoint"));
+	        System.out.println("Invalid EP:" + request.getInvalidUrl());
+	    }
+	    
 	    System.out.println("content: " + request.getContentType());
 	    System.out.println("Final Request Object: " + request);
+	    
 		return request;	
 	}
 	

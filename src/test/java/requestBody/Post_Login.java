@@ -29,9 +29,9 @@ public class Post_Login {
         //Initialize class object and call constructor
 		request = new User_Login.Request(rowData.get("userLoginEmail"),rowData.get("password"));
 		System.out.println("Request after initialization: " + request);
-		request.setBaseUrl(rowData.get("BaseUrl"));
-	    request.setEndpoint(rowData.get("Endpoint"));
-	    request.setContentType(rowData.get("ContentType"));
+		//request.setBaseUrl(rowData.get("BaseUrl"));
+	    //request.setEndpoint(rowData.get("Endpoint"));
+	    //request.setContentType(rowData.get("ContentType"));
 	    System.out.println("content: " + request.getContentType());
 	    System.out.println("Final Request Object: " + request);
 		return request;	

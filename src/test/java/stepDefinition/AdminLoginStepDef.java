@@ -11,29 +11,45 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
 import io.restassured.response.Response;
+import io.restassured.specification.RequestSpecification;
 import payload.User_Login;
 import requestBody.Post_Login;
+import testContext.TestContext;
+import utilities.APIResources;
 import utilities.ExcelUtilities;
+import utilities.ReqResSpec;
+import utilities.ResourceBundleReader;
 
 public class AdminLoginStepDef {
 	private Response response;
 	private User_Login.Request request;
 	private User_Login.Response res;
+	private ReqResSpec reqres;
+	private RequestSpecification request1;
+	private TestContext testContext;
+	private ResourceBundleReader resource;
 	
-	@Given("Authentication type is No Auth")
-	public void authentication_type_is_no_auth() {
-	   RestAssured.authentication = RestAssured.DEFAULT_AUTH;
+	
+	public AdminLoginStepDef(TestContext testcontext) 
+	{
+		this.testContext=testcontext;
+		reqres=testcontext.getReqResSpec();
+		resource=testcontext.getResourceBundleReader();
 	}
 
 	@Given("User create a Post Request body using credentials {string} {string} {int}")
 	public void user_create_a_post_request_body_using_credentials(String string, String sheet, Integer row) throws Exception {
 		request = Post_Login.UserLoginPostBody(sheet, row);
-		RestAssured.baseURI = request.getBaseUrl();
+		request1= RestAssured
+			    .given()
+			    .spec(reqres.ReqSpec());
 	}
 	
 	@When("User sends Post Request")
 	public void user_sends_post_request() {
-		response = RestAssured.given().contentType(request.getContentType()).body(request).log().all().when().post(request.getEndpoint());
+		//response = RestAssured.given().contentType(request.getContentType()).body(request).log().all().when().post(request.getEndpoint());
+		APIResources  resourceAPI = APIResources.loginEndpoint;
+		response=request1.body(request).when().post(resourceAPI.getResource());
 		System.out.println("Response Body: " + response.getBody().asString());
 	    if (response.statusCode() == 200) {
 	       res = response.getBody().as(User_Login.Response.class);

@@ -8,7 +8,16 @@ public class GetallMorbidities {
 		private String endpoint;       
 		private String contentType;
 		private String token;
+		private String InvalidUrl;
 		
+		public String getInvalidUrl() {
+			return InvalidUrl;
+		}
+
+		public void setInvalidUrl(String invalidUrl) {
+			InvalidUrl = invalidUrl;
+		}
+
 		// Constructor
 		public Request() {
 		}

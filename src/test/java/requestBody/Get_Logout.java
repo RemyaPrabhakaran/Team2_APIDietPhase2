@@ -20,9 +20,9 @@ public class Get_Logout {
         //Initialize class object and call constructor
 		request = new Logout.Request();
 		System.out.println("Request after initialization: " + request);
-		request.setBaseUrl(rowData.get("BaseUrl"));
-	    request.setEndpoint(rowData.get("Endpoint"));
-	    request.setContentType(rowData.get("ContentType"));
+		//request.setBaseUrl(rowData.get("BaseUrl"));
+	    //request.setEndpoint(rowData.get("Endpoint"));
+	    //request.setContentType(rowData.get("ContentType"));
 	    if(rowData.get("token_type").contains("admin")) {
 	    	request.setToken(User_Login.adminBearerToken);
 	    	System.out.println("admin token:" + User_Login.adminBearerToken);

@@ -11,31 +11,45 @@ import io.restassured.specification.RequestSpecification;
 import payload.Logout;
 import requestBody.Get_Logout;
 import requestBody.Get_Morbidity;
+import testContext.TestContext;
+import utilities.APIResources;
+import utilities.ReqResSpec;
+import utilities.ResourceBundleReader;
 
 public class LogoutStepDef {
 	Response response;
 	Logout.Request request;
 	Logout.Response res;
-
+	APIResources resourceAPI = APIResources.logoutEndpoint;
+	private RequestSpecification request1;
+	private ReqResSpec reqres;
+	private TestContext testContext;
+	private ResourceBundleReader resource;
+	
+	public LogoutStepDef(TestContext testcontext) 
+	{
+		this.testContext=testcontext;
+		reqres=testcontext.getReqResSpec();
+		resource=testcontext.getResourceBundleReader();
+	}
+	
 	@When("User sends a GET request to fetch logout details  with {string} {string} {int}")
 	public void user_sends_a_get_request_to_fetch_logout_details_with(String scenario, String sheet, Integer row)
 			throws Exception {
 		
 
 		request = Get_Logout.Get_LogoutRequestBody(sheet, row);
+		request1 = RestAssured.given().spec(reqres.ReqSpec());
 		
-		RequestSpecification requestSpec = RestAssured.given();
 
 		if (request.getToken() != null) {
-			requestSpec.header("Authorization", "Bearer " + request.getToken());
+			request1.header("Authorization", "Bearer " + request.getToken());
 		}
 
 		if (scenario.contains("post request")) {
-			response = requestSpec.baseUri(request.getBaseUrl()).basePath(request.getEndpoint())
-					.contentType(request.getContentType()).when().post();
+			response = request1.basePath(resourceAPI.getResource()).when().post();
 		} else {
-			response = requestSpec.baseUri(request.getBaseUrl()).basePath(request.getEndpoint())
-					.contentType(request.getContentType()).when().get();
+			response = request1.basePath(resourceAPI.getResource()).when().get();
 		}
 	}
 

@@ -4,7 +4,7 @@ public class Login_Enum {
 
 	public enum User_Login {
 		password ("test"),
-		userLoginEmail ("Team2.admin@gmail.com");
+		userLoginEmail ("Team10.admin@gmail.com");
 
 		private final String Login;
 		User_Login(String value) {
