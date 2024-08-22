@@ -7,10 +7,10 @@ Feature: Get Logout
 
     Examples: 
       | request_type                     | sheet  | row |
-      | get request                      | sheet3 |   0 |
-      | get request                      | sheet3 |   1 |
-      | post request with invalid method | sheet3 |   2 |
-      | get request                      | sheet3 |   3 |
-      | post request with invalid method | sheet3 |   4 |
-      | get request                      | sheet3 |   5 |
-      | post request with invalid method | sheet3 |   6 |
+      | get request                      | Logout |   0 |
+      | get request                      | Logout |   1 |
+      | post request with invalid method | Logout |   2 |
+      | get request                      | Logout |   3 |
+      | post request with invalid method | Logout |   4 |
+      | get request                      | Logout |   5 |
+      | post request with invalid method | Logout |   6 |

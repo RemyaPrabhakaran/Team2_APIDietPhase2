@@ -5,7 +5,7 @@ Feature: PUT (by dietician )
   Background:
   Given User creates Post request with request body.
   When User send login POST HTTP request with endpoint
-  Then Admin sets the bearer admin token
+  Then Admin sets the bearer admin token for the put request
 
 
   Scenario Outline: Check admin able to update dietician with valid data , dietician id and token 

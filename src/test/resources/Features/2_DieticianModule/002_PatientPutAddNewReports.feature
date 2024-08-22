@@ -13,8 +13,7 @@ Feature: Put Operation [Add New Reports with/without Vitals for existing Patient
       | scenario            | sheet            |
      | Valid              | PatientPutVitals |
     | InValidvitals       | PatientPutVitals |
-    # | Nofile              | PatientPutVitals |
-     # | InvalidVitalsNoFile | PatientPutVitals |
+   
 
   Scenario: Update of patient with invalid method
     Given Dietician creates PUT request by entering  data for the "InvalidMethod" from the "PatientPutVitals"

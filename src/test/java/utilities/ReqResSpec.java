@@ -22,11 +22,11 @@ public class ReqResSpec {
 	String baseURI = reader.getBaseURI();
 
 	public RequestSpecification ReqSpec() throws FileNotFoundException {
-		PrintStream log = new PrintStream(new FileOutputStream("log.txt"));
+		PrintStream log = new PrintStream(new FileOutputStream("log.txt", true));
 
 		request = new RequestSpecBuilder().setBaseUri(baseURI).addFilter(RequestLoggingFilter.logRequestTo(log))
 				.addFilter(ResponseLoggingFilter.logResponseTo(log))
-				// .setContentType(ContentType.JSON)
+				.setContentType(ContentType.JSON)
 				.build();
 
 		return request;

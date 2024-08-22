@@ -1,6 +1,6 @@
 package payload;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 public class GetallMorbidities {
 	public static class Request {

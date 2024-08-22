@@ -42,7 +42,7 @@ public class GetAllDieticianStepDef {
 	  request = RestAssured
 			  .given()
 			  	.spec(reqres.ReqSpec())
-			  	.header("Authorization", "Bearer " +AdminLoginStepDef.adminToken);
+			  	.header("Authorization", "Bearer " +AdminLoginStepDef_Dietician.adminToken);
 	}
 
 	@When("Admin sends the GET http request with endpoint")

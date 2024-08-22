@@ -76,7 +76,7 @@ public class Post_Patient {
 	 
 	return reqBody;
  }
-	 private String convertDateFormat(String dateStr) throws Exception {
+	 public String convertDateFormat(String dateStr) throws Exception {
 		 if (dateStr.matches("\\d{4}-\\d{2}-\\d{2}")) {
 		        return dateStr; 
 	    } 

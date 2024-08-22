@@ -18,12 +18,6 @@ Background:
   When Dietician send  http request with invalid method
   Then Dietician recieves 405 for Retrieve Patient file by FileId
   
-  Scenario: Check dietician able to retrieve patients by invalid field
-   # Given Dietician create requests to retrieve patients by invalid field 
-    # When Dietician send GET http request with endpointto retrieve patients by field
-  
-    #Then Dietician recieves 404 for Retrieve Patient file by FileId
-  
   Scenario: Check dietician able to retrieve patients by field with invalid endpoint
   
   Given Dietician create requests to retrieve patients by field

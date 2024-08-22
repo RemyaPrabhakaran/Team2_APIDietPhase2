@@ -100,7 +100,7 @@ public class PAtientGetMorbDetailsStepDef {
 		res=PatientPostStepDef.request.pathParam("patientId",989000000);
 	}
 	
-	@When("Dietician send GET http request with invalid endpoint")
+	@When("Dietician send a GET http request with invalid endpoint")
 	public void dietician_send_get_http_request_with_invalid_endpoint() {
 		 response = res
 	               .when()

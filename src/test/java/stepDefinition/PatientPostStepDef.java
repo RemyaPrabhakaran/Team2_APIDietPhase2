@@ -37,7 +37,7 @@ Response response;
  String body;
 int exp_status_code;
 PatientResponse pResponse;
-String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyNjY4NDcsImV4cCI6MTcyNDI5NTY0N30.SzEGGUC99E8nZKMyqrj9cBgx36tthxbaY3gtaLpttKeDgnnBMHpH3Rd4nYH8kXyE50mmlh6EbQ_NZ6tC60oANw";
+//String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC5jb20iLCJpYXQiOjE3MjQyNjY4NDcsImV4cCI6MTcyNDI5NTY0N30.SzEGGUC99E8nZKMyqrj9cBgx36tthxbaY3gtaLpttKeDgnnBMHpH3Rd4nYH8kXyE50mmlh6EbQ_NZ6tC60oANw";
 	 
 
 
@@ -62,7 +62,7 @@ String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC
 		
 	 request= RestAssured
 				    .given()
-				    	.spec(reqres.ReqSpec()).header("Authorization", "Bearer "+dieticiantoken);;
+				    	.spec(reqres.ReqSpec()).header("Authorization", "Bearer "+AdminLoginStepDef_Dietician.dieticianToken);;
 	
 	}
 
@@ -94,19 +94,8 @@ String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC
 
 	@When("Dietician send POST http request with endpoint")
 	public void dietician_send_post_http_request_with_endpoint() throws Exception {
-		 
-		
 		            
 		 response = res.body(body).when().post(resourceApi.getResource());
-	/*	 response = res
-               .when()
-                 .post(Post_Patient.endpoint)
-                 .then()
-                 .log().all()
-                 .extract()
-                 .response();*/
-		 
-		
 	}
 
 	@Then("Dietician recieves response for the respective {string}")
@@ -126,15 +115,6 @@ String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC
 		              .getResourceAsStream("PostPatientSchema.json")));
 			 pResponse= response.getBody().as(PatientResponse.class);
 			
-				//Assert.assertEquals(pResponse.Email, Patient_Post.Email);
-			 // Assert.assertEquals(pResponse.FirstName, Patient_Post.FirstName);
-			  //Assert.assertEquals(pResponse.LastName, Patient_Post.LastName);
-			//  Assert.assertEquals(pResponse.ContactNumber, Patient_Post.ContactNumber);
-			 // Assert.assertEquals(pResponse.Allergy, Patient_Post.Allergy);
-			 // Assert.assertEquals(pResponse.FoodPreference, Patient_Post.FoodPreference);
-			  //Assert.assertEquals(pResponse.CuisineCategory, Patient_Post.CuisineCategory);
-			  
-			//PatientId = response.jsonPath().getInt("patientId");
 		
 		int PatientId= pResponse.patientId;
 		patientIDs.add(PatientId);
@@ -155,8 +135,6 @@ String dieticiantoken = "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJUZWFtbm0uYW1pbkBnbWFpbC
 			
 			
 			break;
-			
-			
 			
 		case "ValidAdditional":
 			

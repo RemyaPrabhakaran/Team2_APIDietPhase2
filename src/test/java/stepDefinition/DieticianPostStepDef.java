@@ -56,7 +56,7 @@ public class DieticianPostStepDef {
 		request= RestAssured
 			    .given()
 			    	.spec(reqres.ReqSpec())
-			    	.header("Authorization", "Bearer " +AdminLoginStepDef.adminToken);
+			    	.header("Authorization", "Bearer " +AdminLoginStepDef_Dietician.adminToken);
 	}
 
 

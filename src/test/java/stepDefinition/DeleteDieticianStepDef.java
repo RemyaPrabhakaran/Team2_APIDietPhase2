@@ -37,11 +37,11 @@ public class DeleteDieticianStepDef {
 		 request = RestAssured
 				  .given()
 				  	.spec(reqres.ReqSpec())
-				  	.header("Authorization", "Bearer " +AdminLoginStepDef.adminToken);
+				  	.header("Authorization", "Bearer " +AdminLoginStepDef_Dietician.adminToken);
 	}
 
-	@When("Admin send DELETE http request with endpoint")
-	public void admin_send_delete_http_request_with_endpoint() {
+	@When("Admin send DELETE http request with delete endpoint")
+	public void admin_send_delete_http_request_with_delete_endpoint() {
 		String dieticianID = DieticianPostStepDef.dieticianIDs.get(1);
 		APIResources  resourceAPI = APIResources.dietcianPutEndpoint;
 		   response = request

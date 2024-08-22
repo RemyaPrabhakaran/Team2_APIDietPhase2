@@ -15,7 +15,6 @@ import io.restassured.module.jsv.JsonSchemaValidator;
 import io.restassured.response.Response;
 import io.restassured.specification.RequestSpecification;
 import requestBody.Dietician;
-
 import testContext.TestContext;
 import utilities.APIResources;
 import utilities.ExcelUtilities;
@@ -51,14 +50,14 @@ public class DieticianPutStepDef {
 	
 	
 
-	@Then("Admin sets the bearer admin token")
-	public void admin_sets_the_bearer_admin_token() throws FileNotFoundException {
+	@Then("Admin sets the bearer admin token for the put request")
+	public void admin_sets_the_bearer_admin_token_for_the_put_request() throws FileNotFoundException {
 		String dieticianID = DieticianPostStepDef.dieticianIDs.get(0);
 		System.out.println("+++++++++++Dietician Id +++++++++"+dieticianID);
 		request= RestAssured
 			    .given()
 			    	.spec(reqres.ReqSpec())
-			    	.header("Authorization", "Bearer " +AdminLoginStepDef.adminToken)
+			    	.header("Authorization", "Bearer " +AdminLoginStepDef_Dietician.adminToken)
 			    	.pathParam("dieticianId", dieticianID);
 	}
 

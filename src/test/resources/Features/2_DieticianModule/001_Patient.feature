@@ -32,8 +32,5 @@ Feature: Post Operation [create patient]
       When Dietician send  http request with endpoint and invalid endpoint
       Then Dietician recieves 404 statuscode
       
-      Scenario: Creation of patient with invalid content type
-      # Given Dietician creates POST request by entering  data for the "InvalidContent" from the "PatientPost"
-      # When Dietician send  http request with endpoint and invalid content type
-     # Then Dietician recieves 415 statuscode
+
       

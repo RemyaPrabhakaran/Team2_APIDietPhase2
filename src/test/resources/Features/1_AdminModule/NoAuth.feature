@@ -12,7 +12,7 @@ Feature: Checking all the requests with no auth
 	
 	 Scenario: Check admin able to retrieve all dietician in get all request
 	Given Admin creates request with valid data with no auth
-	When Admin send GET http request with endpoint
+	When Admin send GET http request with get endpoint
 	Then Admin recieves 401 unauthorized
 	
 	Scenario: Check admin able to retrieve dietician by ID with no auth

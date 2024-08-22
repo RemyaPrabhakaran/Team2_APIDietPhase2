@@ -110,7 +110,7 @@ public class PatientTokenStepDef extends ReqResSpec {
 	public void patient_creates_put_request_by_entering_valid_data_into_the_form_data_key_and_value_fields_and_valid_patient_id() throws Exception {
 	   
 		List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap(resource.getExcelFilePath(), "PatientPutVitals", "Valid");
-		//List<Map<String, String>> testData1 = ExcelUtilities.getTestDataInMap("src/test/resources/Data/Team2_APIDiet_Data.xlsx", "PatientPutVitals", "Valid");
+		
 		
 		for(Map<String, String> data : testData) {
 			

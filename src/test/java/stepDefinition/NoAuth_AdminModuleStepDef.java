@@ -63,8 +63,8 @@ public class NoAuth_AdminModuleStepDef {
 
 	
 
-	@When("Admin send GET http request with endpoint")
-	public void admin_send_get_http_request_with_endpoint() {
+	@When("Admin send GET http request with get endpoint")
+	public void admin_send_get_http_request_with_get_endpoint() {
 		APIResources resourceApi = APIResources.dieticianEndpoint;
 		response = request.when().get(resourceApi.getResource());
 	}

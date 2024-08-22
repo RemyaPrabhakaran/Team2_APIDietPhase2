@@ -24,6 +24,7 @@ public class User_Login {
 			this.userLoginEmail = userLoginEmail;
 			this.password = password;
 		}
+		
 
 		// Getters and Setters
 		public String getUserLoginEmail() {

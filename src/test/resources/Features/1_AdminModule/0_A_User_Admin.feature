@@ -8,12 +8,12 @@ Feature: User Login Module
 
     Examples: 
       | scenario               | sheetno | rowno |
-      | Valid Credentials      | sheet1  |     0 |
-      | Invalid userLoginEmail | sheet1  |     1 |
-      | Invalid URL            | sheet1  |     2 |
-      | Invalid Endpoint       | sheet1  |     3 |
-      | Invalid Content        | sheet1  |     4 |
-      | Invalid Password       | sheet1  |     5 |
+      | Valid Credentials      | Login  |     0 |
+      | Invalid userLoginEmail | Login  |     1 |
+      | Invalid URL            | Login  |     2 |
+      | Invalid Endpoint       | Login  |     3 |
+      | Invalid Content        | Login  |     4 |
+      | Invalid Password       | Login  |     5 |
 
   @tag2
   Scenario Outline: User Login as Dietician with Credentials
@@ -23,8 +23,8 @@ Feature: User Login Module
 
     Examples: 
       | scenario                    | sheetno | rowno |
-      | Valid Dietician Credentials | sheet1  |     6 |
-      | Invalid userLoginEmail      | sheet1  |     7 |
+      | Valid Dietician Credentials | Login  |     6 |
+      | Invalid userLoginEmail      | Login  |     7 |
 
   @tag3
   Scenario Outline: User Login as Patient with Credentials
@@ -34,5 +34,5 @@ Feature: User Login Module
 
     Examples: 
       | scenario                  | sheetno | rowno |
-      | Valid Patient Credentials | sheet1  |     8 |
-      | Invalid userLoginEmail    | sheet1  |     9 |
+      | Valid Patient Credentials | Login  |     8 |
+      | Invalid userLoginEmail    | Login  |     9 |

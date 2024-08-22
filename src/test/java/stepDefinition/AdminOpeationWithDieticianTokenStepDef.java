@@ -38,6 +38,7 @@ public class AdminOpeationWithDieticianTokenStepDef {
 	 Dietician dietcian;
 	 String res;
 	
+	
 	  public AdminOpeationWithDieticianTokenStepDef(TestContext testcontext) {
 		  this.testContext = testcontext;
 		  reqres = testcontext.getReqResSpec();
@@ -67,8 +68,8 @@ public class AdminOpeationWithDieticianTokenStepDef {
 	}	
 	
 
-	@Then("Admin recieves {int} forbidden")
-	public void admin_recieves_forbidden(Integer exp_statusCode) {
+	@Then("Admin recieves a {int} forbidden")
+	public void admin_recieves_a_forbidden(Integer exp_statusCode) {
 		response.then()
 		.assertThat().statusCode(exp_statusCode);
 	}

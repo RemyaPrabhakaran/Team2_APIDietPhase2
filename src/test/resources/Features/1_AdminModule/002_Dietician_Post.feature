@@ -17,5 +17,5 @@ Feature: PUT (by dietician )
 	
 	|scenario 												|	sheetName				| statusCode|
 	|PostDieticianInvalidData1				|PostDietician		| 400				|
-#	|PostDieticianPositive						|PostDietician		|	201				|
+	|PostDieticianPositive						|PostDietician		|	201				|
 	

@@ -10,7 +10,7 @@ Feature: DELETE ( by dietician)
 
   Scenario: Check admin able to delete dietician by ID	
 	Given Admin create DELETE request for deleting the dietician
-	When Admin send DELETE http request with endpoint
+	When Admin send DELETE http request with delete endpoint
 	Then Admin recieves 200 ok message with successful delete message
 
 	
