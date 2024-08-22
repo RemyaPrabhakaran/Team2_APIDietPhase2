@@ -3,12 +3,10 @@ import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = {"src/test/resources/Features/A_User_Admin.feature", "src/test/resources/Features/Morbidities.feature", "src/test/resources/Features/Userlogout.feature"},
-		
-        glue = {"stepDefinition"},
+		features = "src/test/resources/Features",
+        glue = {"stepDefinition", "hooks"},
         		   plugin = {"pretty","html:HtmlReport/report.html",
         		    		"json:JSONReport/report.json",
-        		    		
         		    		"timeline:test-output-thread/"})     
 			
 

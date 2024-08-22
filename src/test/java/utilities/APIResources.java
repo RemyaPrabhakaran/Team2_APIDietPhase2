@@ -9,7 +9,8 @@ public enum APIResources {
 	newReportsEndpoint("/patient/newReports"),
 	patientMorbiditiesEndpoint("/patient/testReports"),
 	RetrievePatientFileEndpoint("/patient/testReports/viewFile"),
-	MorbidityEndpoint("/morbidity");
+	MorbidityEndpoint("/morbidity"),
+	invalidEndpoint("/dietican");
 	
 	private String resource;
 
@@ -20,4 +21,3 @@ public enum APIResources {
 		return resource;
 	}			
 }
-

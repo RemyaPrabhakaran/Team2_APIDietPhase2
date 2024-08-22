@@ -6,6 +6,10 @@ import static org.testng.Assert.assertTrue;
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -17,6 +21,7 @@ import requestBody.Post_Login;
 import testContext.TestContext;
 import utilities.APIResources;
 import utilities.ExcelUtilities;
+import utilities.JsonSchemaValidation;
 import utilities.ReqResSpec;
 import utilities.ResourceBundleReader;
 
@@ -28,7 +33,6 @@ public class AdminLoginStepDef {
 	private RequestSpecification request1;
 	private TestContext testContext;
 	private ResourceBundleReader resource;
-	
 	
 	public AdminLoginStepDef(TestContext testcontext) 
 	{
@@ -101,3 +105,5 @@ public class AdminLoginStepDef {
 	    }
 	}
 }
+	
+
