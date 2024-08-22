@@ -13,6 +13,7 @@ public class TestContext {
 	public TestContext() {
 		reqResSpec = new ReqResSpec();
 		resourceBundleReader = new ResourceBundleReader();
+		
 	}
 		
 		public ReqResSpec getReqResSpec() {
@@ -22,12 +23,12 @@ public class TestContext {
 			return resourceBundleReader;
 
 	}
-		public AdminLoginStepDef getAdminLoginStepDef() {
-	        if (adminLoginStepDef == null) {
-	          //  adminLoginStepDef = new AdminLoginStepDef(this); 
-	        }
-	        return adminLoginStepDef;
-	
-		}
+
+	public AdminLoginStepDef getAdminLoginStepDef() {
+        if (adminLoginStepDef == null) {
+            adminLoginStepDef = new AdminLoginStepDef(this); 
+        }
+        return adminLoginStepDef;
+    }
 		
 }

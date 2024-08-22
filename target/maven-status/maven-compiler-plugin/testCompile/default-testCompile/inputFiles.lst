@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\NoAuthStepDef.java
 C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\testContext\TestContext.java
 C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Patient_Post.java
@@ -30,3 +31,22 @@ C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\P
 C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\PatientPutAddNewReports.java
 C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\DieticianPost.java
 C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\D_Login.java
+=======
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\requestBody\Dietician.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\ReqResSpec.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\Patient_Post.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\ExcelUtilities.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\testRunner\TestRunner.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\JsonSchemaValidation.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\testContext\TestContext.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\Dietician_Post.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\stepDefinition\AdminLoginStepDef.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\baseTest\BaseTest.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\stepDefinition\DieticianPostStepDef.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\stepDefinition\DieticianPutStepDef.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\ResourceBundleReader.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\requestBody\Post_Login.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\Patient_Put.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\User_Login.java
+C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\APIResources.java
+>>>>>>> 877a656a728745ed8cb7106ac497ae57a1b8db31

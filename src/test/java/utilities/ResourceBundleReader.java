@@ -4,9 +4,6 @@ import java.util.ResourceBundle;
 
 public class ResourceBundleReader {
 
-
-
-
 	private ResourceBundle dataRead;
 
 	public ResourceBundleReader() {
@@ -30,8 +27,14 @@ public class ResourceBundleReader {
 		return getProperty("excelPath");
 	}
 
-	public String getLoginEndpoint() {
-		return getProperty("loginEndpoint");
+	public String getLoginJsonSchemaFile() {
+		return getProperty("LoginSchema");
+
+	}
+
+	public String getDieticianSchemaFile() {
+		return getProperty("DieticianSchema");
+
 	}
 
 	public String getLogoutEndpoint() {
@@ -65,9 +68,8 @@ public class ResourceBundleReader {
 	public String getPDFFile1() {
 		return getProperty("PDFFile1");
 	}
-	
+
 	public String getPDFFile2() {
 		return getProperty("PDFFile2");
 	}
-	
 }

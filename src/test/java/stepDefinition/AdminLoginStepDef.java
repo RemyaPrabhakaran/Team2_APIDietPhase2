@@ -1,12 +1,14 @@
 package stepDefinition;
 
+import static org.testng.Assert.assertEquals;
+import static org.testng.Assert.assertTrue;
 
-import java.io.FileNotFoundException;
-import java.util.List;
-import java.util.Map;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
-
-import org.testng.Assert;
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
@@ -17,99 +19,100 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import io.restassured.RestAssured;
-
 import io.restassured.response.Response;
-
 import io.restassured.specification.RequestSpecification;
-
+import payload.User_Login;
 import requestBody.Post_Login;
+import testContext.TestContext;
+import utilities.APIResources;
 import utilities.ExcelUtilities;
+import utilities.JsonSchemaValidation;
 import utilities.ReqResSpec;
+import utilities.ResourceBundleReader;
 
-public class AdminLoginStepDef extends ReqResSpec {
+public class AdminLoginStepDef {
+	private Response response;
+	private User_Login.Request request;
+	private User_Login.Response res;
+	private ReqResSpec reqres;
+	private RequestSpecification request1;
+	private TestContext testContext;
+	private ResourceBundleReader resource;
+	static public String dieticianToken;
+	static public String patientToken;
+	static public String adminToken;
 	
-	Post_Login postLogin = new Post_Login();
-	 Response response = null;
-	  String body;
-	  int actual_Status_Code;
-	  int exp_status_code;
-
-	  public static String admintoken;
-
-	  RequestSpecification request;
-	  
-	  
-
-	   
-		
-
-@Given("Admin sets the Authorization to no auth")
-public void admin_sets_the_authorization_to_no_auth() throws FileNotFoundException {
-	System.out.println("Admin sets no Auth");
-}
-
-
-@Given("User creates Post request with request body.")
-public void user_creates_post_request_with_request_body() throws Exception {
-
-	  request= RestAssured
-	    .given()
-	    	.spec(ReqSpec());
-	
-
-	List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap("C:\\Users\\rashm\\git\\Team2_APIDietPhase2RestAssured\\src\\test\\resources\\Data\\Team2_APIDiet_Data.xlsx", "Sheet1", "UserLoginPost");
-	for(Map<String, String> data : testData) {
-		body = postLogin.getLoginReqBody(data);
-		 exp_status_code = Integer.parseInt(data.get("StatusCode"));
-	System.out.println(body);
-response = RestAssured
-    .given()
-    	.baseUri("https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/login")
-    	.header("Content-Type", "application/json")
-    	.body(body)
-    .when()
-    	.post()
-    .then()
-    	.assertThat().statusCode(exp_status_code)
-    	.log().all().extract().response();
+	public AdminLoginStepDef(TestContext testcontext) 
+	{
+		this.testContext=testcontext;
+		reqres=testcontext.getReqResSpec();
+		resource=testcontext.getResourceBundleReader();
 	}
-  int status_code = response.getStatusCode();
-  Assert.assertEquals(status_code, exp_status_code, "correct status code returned");
 
-   
-}
-
-@When("User send POST HTTP request with endpoint")
-public void user_send_post_http_request_with_endpoint() throws Exception {
-	List<Map<String, String>> testData = ExcelUtilities.getTestDataInMap("D:\\Rathna\\Hackathons\\Team2_APIDiet_RestAssured\\Team2_APIDiet_Data.xlsx", "AdminLogin", "UserLoginPost");
-	for(Map<String, String> data : testData) {
-		body = postLogin.getLoginReqBody(data);
-		
-		exp_status_code = Integer.parseInt(data.get("StatusCode"));
-	System.out.println(body);
-	response =  request
-    	.body(body)
-    .when()
-    	.post("/login");
-    	
-	response .then()
-    	.assertThat().statusCode(exp_status_code)
-    	.log().all().extract().response();
+	@Given("User create a Post Request body using credentials {string} {string} {int}")
+	public void user_create_a_post_request_body_using_credentials(String string, String sheet, Integer row) throws Exception {
+		request = Post_Login.UserLoginPostBody(sheet, row);
+		request1= RestAssured
+			    .given()
+			    .spec(reqres.ReqSpec());
 	}
-}
-
-@Then("User recieves {int} created with response body")
-
-public void user_recieves_created_with_response_body(Integer int1) throws JsonMappingException, JsonProcessingException {
-	String responseBody= response.body().asString();
 	
-	 ObjectMapper objectMapper = new ObjectMapper();
-       
-           com.fasterxml.jackson.databind.JsonNode jsonNode = objectMapper.readTree(responseBody);
-          admintoken = jsonNode.get("token").asText();
-           System.out.println("Token: " + admintoken);
-}
+	@When("User sends Post Request")
+	public void user_sends_post_request() {
+		//response = RestAssured.given().contentType(request.getContentType()).body(request).log().all().when().post(request.getEndpoint());
+		APIResources  resourceAPI = APIResources.loginEndpoint;
+		response=request1.body(request).when().post(resourceAPI.getResource());
+		System.out.println("Response Body: " + response.getBody().asString());
+	    if (response.statusCode() == 200) {
+	       res = response.getBody().as(User_Login.Response.class);
+	       System.out.println("TOKEN: " + res.getToken());
+	    }
+	}
 
-
-
+	@Then("the User receives status for scenario {string} {string} {int}")
+	public void the_user_receives_status_for_scenario(String string, String sheet, Integer row) {
+	    String status_code = Post_Login.getStatusCode(sheet, row);
+	    assertEquals(Integer.parseInt(status_code), response.getStatusCode());
+	    System.out.println("status: " + response.getStatusCode());
+	    System.out.println("expected status: " + status_code);
+	    if (string.contentEquals("Valid Credentials") ||
+	    	(string.contentEquals("Valid Dietician Credentials")) ||
+	    	(string.contentEquals("Valid Patient Credentials"))) {
+	    	assertEquals("Bearer ", res.getType());
+			if (res.getUserId() > 0) {
+				assertTrue(true);
+			} else {
+				assertTrue(false);
+			}
+			assertEquals(request.getUserLoginEmail(), res.getLoginUserEmail());
+			if (res.getToken().isEmpty()) {
+				assertTrue(false);
+			}
+			if((res.getRoles().contains("ROLE_ADMIN")) ||
+				(res.getRoles().contains("ROLE_DIETICIAN")) ||
+				(res.getRoles().contains("ROLE_PATIENT"))) {
+				assertTrue(true);
+			} else {
+				assertTrue(false);
+			}
+			
+			if (string.contentEquals("Valid Credentials")) {
+			    User_Login.adminBearerToken = res.getToken();
+			    adminToken = res.getToken();
+			    System.out.println("admin token:" + User_Login.adminBearerToken);
+			}
+			
+			if (string.contentEquals("Valid Dietician Credentials")) {
+			    User_Login.dieticianBearerToken = res.getToken();
+			    dieticianToken = res.getToken();
+			    System.out.println("dietician token:" + User_Login.dieticianBearerToken);
+			}
+			
+			if (string.contentEquals("Valid Patient Credentials")) {
+			    User_Login.patientBearerToken = res.getToken();
+			    patientToken = res.getToken();
+			    System.out.println("patient token:" + User_Login.patientBearerToken);
+			}
+	    }
+	}
 }

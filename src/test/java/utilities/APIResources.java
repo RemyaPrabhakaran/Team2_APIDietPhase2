@@ -10,13 +10,13 @@ public enum APIResources {
 	patientMorbiditiesEndpoint("/patient/testReports/{patientId}"),
 	RetrievePatientFileEndpoint("/patient/testReports/viewFile/{fileId}"),
 	DeletePatientEndpoint("/patient/{patientId}"),
-	MorbidityEndpoint("/morbidity"),
-	
 	patientInvalidEndpoint("/ptient"),
 	newReportsInvalidEndpoint("/ptient/newReports/"),
 	DeletePatientInvalidEndpoint("/ptient/{patientId}"),
 	patientMorbiditiesInvalidEndpoint("/ptient/testReports/{patientId}"),
-	RetrievePatientFileInvalidEndpoint("/ptient/testReports/viewFile/{fileId}");
+	RetrievePatientFileInvalidEndpoint("/ptient/testReports/viewFile/{fileId}"),
+	MorbidityEndpoint("/morbidity"),
+	invalidEndpoint("/dietican");
 	
 	private String resource;
 
@@ -26,5 +26,4 @@ public enum APIResources {
 	public String getResource() {
 		return resource;
 	}			
-
 }

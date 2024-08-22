@@ -14,34 +14,26 @@ import io.restassured.specification.ResponseSpecification;
 
 public class ReqResSpec {
 
-	 RequestSpecification request;
+	RequestSpecification request;
 	ResponseSpecification response;
-	 
+
 	int exp_status_code;
 	ResourceBundleReader reader = new ResourceBundleReader();
-	 String baseURI = reader.getBaseURI();
-	public  RequestSpecification ReqSpec() throws FileNotFoundException {
-		PrintStream log  = new PrintStream(new FileOutputStream("log.txt"));
-		
-				request = new RequestSpecBuilder().setBaseUri(baseURI)
-						.addFilter(RequestLoggingFilter.logRequestTo(log))
-						.addFilter(ResponseLoggingFilter.logResponseTo(log))
-						//.setContentType(ContentType.JSON)
-						.build();
-			
+	String baseURI = reader.getBaseURI();
 
-	
-	
-	
+	public RequestSpecification ReqSpec() throws FileNotFoundException {
+		PrintStream log = new PrintStream(new FileOutputStream("log.txt"));
 
-			
-		return request;
-		
-	}
-	
-	public ResponseSpecification ResSpec() {
-		return response = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON)
+		request = new RequestSpecBuilder().setBaseUri(baseURI).addFilter(RequestLoggingFilter.logRequestTo(log))
+				.addFilter(ResponseLoggingFilter.logResponseTo(log))
+				// .setContentType(ContentType.JSON)
 				.build();
+
+		return request;
+	}
+
+	public ResponseSpecification ResSpec() {
+		return response = new ResponseSpecBuilder().expectStatusCode(200).expectContentType(ContentType.JSON).build();
 	}
 
 }
