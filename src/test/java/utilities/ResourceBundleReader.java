@@ -27,15 +27,49 @@ public class ResourceBundleReader {
 		return getProperty("excelPath");
 	}
 
-
-	
 	public String getLoginJsonSchemaFile() {
 		return getProperty("LoginSchema");
-		
-	}
-	public String getDieticianSchemaFile() {
-		return getProperty("DieticianSchema");
-		
+
 	}
 
+	public String getDieticianSchemaFile() {
+		return getProperty("DieticianSchema");
+
+	}
+
+	public String getLogoutEndpoint() {
+		return getProperty("logoutEndpoint");
+	}
+
+	public String getDieticianEndpoint() {
+		return getProperty("dieticianEndpoint");
+	}
+
+	public String getPatientEndpoint() {
+		return getProperty("patientEndpoint");
+	}
+
+	public String getNewReportsEndpoint() {
+		return getProperty("newReportsEndpoint");
+	}
+
+	public String getPatientMorbiditiesEndpoint() {
+		return getProperty("patientMorbiditiesEndpoint");
+	}
+
+	public String getRetrievePatientFileEndpoint() {
+		return getProperty("RetrievePatientFileEndpoint");
+	}
+
+	public String getMorbidityEndpoint() {
+		return getProperty("MorbidityEndpoint");
+	}
+
+	public String getPDFFile1() {
+		return getProperty("PDFFile1");
+	}
+
+	public String getPDFFile2() {
+		return getProperty("PDFFile2");
+	}
 }

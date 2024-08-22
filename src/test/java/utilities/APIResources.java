@@ -6,9 +6,15 @@ public enum APIResources {
 	dieticianEndpoint("/dietician"),
 	dietcianPutEndpoint("/dietician/{dieticianId}"),
 	patientEndpoint("/patient"),
-	newReportsEndpoint("/patient/newReports"),
-	patientMorbiditiesEndpoint("/patient/testReports"),
-	RetrievePatientFileEndpoint("/patient/testReports/viewFile"),
+	newReportsEndpoint("/patient/newReports/"),
+	patientMorbiditiesEndpoint("/patient/testReports/{patientId}"),
+	RetrievePatientFileEndpoint("/patient/testReports/viewFile/{fileId}"),
+	DeletePatientEndpoint("/patient/{patientId}"),
+	patientInvalidEndpoint("/ptient"),
+	newReportsInvalidEndpoint("/ptient/newReports/"),
+	DeletePatientInvalidEndpoint("/ptient/{patientId}"),
+	patientMorbiditiesInvalidEndpoint("/ptient/testReports/{patientId}"),
+	RetrievePatientFileInvalidEndpoint("/ptient/testReports/viewFile/{fileId}"),
 	MorbidityEndpoint("/morbidity"),
 	invalidEndpoint("/dietican");
 	

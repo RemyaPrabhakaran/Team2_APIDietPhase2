@@ -1,3 +1,37 @@
+<<<<<<< HEAD
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\NoAuthStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\testContext\TestContext.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Patient_Post.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\DeletePatientStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\requestBody\Post_Patient.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\requestBody\Put_PatientAddNewReport.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Dietician_Post.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\PatientPostStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\requestBody\Post_Login.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\utilities\ExcelUtilities.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\requestBody\Post_Dietician.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Patient_Put_AddNewReports.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\response\PatientResponse.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\AdminLoginStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\DieticianPutStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\PAtientGetMorbDetailsStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\testRunner\TestRunner.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Patient_Vitals.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\AminTokenStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\PatientGetRetrievePatientFile.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\User_Login.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Login_Enum.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\utilities\APIResources.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\utilities\ResourceBundleReader.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\baseTest\BaseTest.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\utilities\ReqResSpec.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\requestBody\Post_DieticianLogin.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\Patient_Put.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\PatientTokenStepDef.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\PatientPutAddNewReports.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\stepDefinition\DieticianPost.java
+C:\Users\rashm\git\Team2_APIDietPhase2RestAssured\src\test\java\payload\D_Login.java
+=======
 C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\requestBody\Dietician.java
 C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\ReqResSpec.java
 C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\Patient_Post.java
@@ -15,3 +49,4 @@ C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\requestBody\Post_Login.java
 C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\Patient_Put.java
 C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\payload\User_Login.java
 C:\Users\chand\git\Team2_APIDietPhase2\src\test\java\utilities\APIResources.java
+>>>>>>> 877a656a728745ed8cb7106ac497ae57a1b8db31

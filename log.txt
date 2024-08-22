@@ -1,3 +1,5 @@
+<<<<<<< HEAD
+=======
 Request method:	POST
 Request URI:	https://dietician-july-api-hackathon-80f2590665cc.herokuapp.com/dietician/dietician
 Proxy:			<none>
@@ -59,3 +61,4 @@ Via: 1.1 vegur
     "HospitalPincode": "600073",
     "Education": "93459873987"
 }
+>>>>>>> 877a656a728745ed8cb7106ac497ae57a1b8db31

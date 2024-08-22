@@ -10,6 +10,11 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.JsonMappingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
+
+import io.cucumber.core.internal.com.fasterxml.jackson.databind.JsonNode;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
@@ -36,7 +41,6 @@ public class AdminLoginStepDef {
 	static public String dieticianToken;
 	static public String patientToken;
 	static public String adminToken;
-	
 	
 	public AdminLoginStepDef(TestContext testcontext) 
 	{
@@ -112,5 +116,3 @@ public class AdminLoginStepDef {
 	    }
 	}
 }
-	
-

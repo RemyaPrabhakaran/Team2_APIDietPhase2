@@ -1,6 +1,5 @@
 package testContext;
 
-
 import stepDefinition.AdminLoginStepDef;
 import utilities.ReqResSpec;
 import utilities.ResourceBundleReader;
@@ -24,12 +23,12 @@ public class TestContext {
 			return resourceBundleReader;
 
 	}
+
 	public AdminLoginStepDef getAdminLoginStepDef() {
         if (adminLoginStepDef == null) {
             adminLoginStepDef = new AdminLoginStepDef(this); 
         }
         return adminLoginStepDef;
     }
-
 		
 }
