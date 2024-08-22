@@ -33,6 +33,10 @@ public class AdminLoginStepDef {
 	private RequestSpecification request1;
 	private TestContext testContext;
 	private ResourceBundleReader resource;
+	static public String dieticianToken;
+	static public String patientToken;
+	static public String adminToken;
+	
 	
 	public AdminLoginStepDef(TestContext testcontext) 
 	{
@@ -90,16 +94,19 @@ public class AdminLoginStepDef {
 			
 			if (string.contentEquals("Valid Credentials")) {
 			    User_Login.adminBearerToken = res.getToken();
+			    adminToken = res.getToken();
 			    System.out.println("admin token:" + User_Login.adminBearerToken);
 			}
 			
 			if (string.contentEquals("Valid Dietician Credentials")) {
 			    User_Login.dieticianBearerToken = res.getToken();
+			    dieticianToken = res.getToken();
 			    System.out.println("dietician token:" + User_Login.dieticianBearerToken);
 			}
 			
 			if (string.contentEquals("Valid Patient Credentials")) {
 			    User_Login.patientBearerToken = res.getToken();
+			    patientToken = res.getToken();
 			    System.out.println("patient token:" + User_Login.patientBearerToken);
 			}
 	    }
